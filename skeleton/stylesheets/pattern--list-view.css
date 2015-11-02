@@ -1,0 +1,113 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							       List View
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+.list-view {
+	overflow: hidden;
+	height: 100%;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;
+	padding: 15px;
+}
+.list-view--vert {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	flex-flow: row wrap;
+}
+	.list-view__list {
+		background-color: white;
+		overflow: hidden;
+	}
+	.list-view--horiz .list-view__list {
+		width: calc(100%);
+		height: 300px;
+		margin-bottom: 0;
+	}
+	.list-view--vert .list-view__list {
+		height: calc(100% - 30px);
+		width: 700px;
+		float: left;
+		margin-right: 0;
+	}
+		.list-view__list table {
+			position: relative;
+			height: calc(100% - 30px);
+		}
+		.list-view__list table,
+		.list-view__list thead,
+		.list-view__list tbody{
+			width: 100%;
+			display: block;
+		}
+			.list-view__list thead {
+				padding-right: 16px;
+			}
+			.list-view__list tbody {
+				overflow-y: scroll;
+				height: calc(100%);
+			}
+				.list-view__list tr {
+		    		display: flex;
+		    		justify-content: space-between;
+		    		align-items: stretch;
+		    		flex-flow: row wrap;
+				}
+				.list-view__list th,
+				.list-view__list td {
+					display: inline-block;
+					width: 20%;
+					overflow: hidden;
+					padding: 10px 5px;
+					vertical-align: middle;
+				}
+				.list-view__list th {
+					border-bottom: 1px solid rgba(0,0,0,.1);
+				}
+	.list-view__pane {
+		overflow: hidden;
+	}
+	.list-view--vert .list-view__pane {
+	    flex-grow: 1;
+	    position: relative;
+	    height: 100%;
+	}
+	.list-view .splitter {
+		opacity: 0;
+		transition: all .3s ease;
+	}
+	.list-view .splitter:hover,
+	.list-view .splitter.active {
+		opacity: .2;
+	}
+		.list-view--horiz .splitter {
+			width: 100%;
+			height: 15px;
+			cursor: row-resize;
+		}
+		.list-view--vert .splitter {
+			width: 15px;
+			height: calc(100% - 30px);
+			cursor: col-resize;
+			position: absolute;
+			left: 0px;
+			top: 0;
+		}
+	.list-view__pane__content {
+		padding: 15px;
+		overflow: auto;
+		height: calc(100% - 30px);
+		background-color: rgba(0,0,0,.1);
+	}
+		.list-view--vert .list-view__pane__content {
+			margin-left: 15px;
+		}

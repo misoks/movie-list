@@ -1,0 +1,75 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							      Folder Tree
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+.tree {
+	font-size: 14px;
+	width: 175px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+	.tree ul {
+		list-style-type: none;
+		padding: 0;
+	}
+	.tree__section {
+		margin-bottom: 1em;
+	}
+	.tree__section--blue,
+	.tree__section--blue .vector g {
+		box-shadow: 5px 0px 0px #2196f3 inset;
+		fill: #2196f3;
+	}
+	.tree__section--green,
+	.tree__section--green .vector g {
+		box-shadow: 5px 0px 0px #4caf50 inset;
+		fill: #4caf50;
+	}
+	.tree li {
+		text-overflow: ellipsis;
+		position: relative;
+		overflow: hidden;
+		padding: .1em;
+	}
+	.tree > ul > li {
+		padding-left: 2em;
+	}
+	.tree ul ul li {
+		padding-left: 3em;
+	}
+	.tree ul ul ul li {
+		padding-left: 4em;
+	}
+
+	.tree li.visited {
+		box-shadow: 5px 0px 0px rgba(255,255,255,.5) inset;
+	}
+	.tree li.current,
+	.tree li:hover {
+		background-color: rgba(0,0,0,.05);
+		box-shadow: 5px 0px 0px rgba(0,0,0,.2) inset;
+		cursor: pointer;
+	}
+	.tree li.current {
+		font-weight: bold;
+	}
+		.tree .vector {
+			width: 1.2em;
+			position: absolute;
+			left: .7em;
+  			top: .2em;
+		}
+		.tree ul ul li .vector {
+			left: 1.7em;
+		}
+		.tree ul ul ul li .vector {
+			left: 2.7em;
+		}

@@ -1,0 +1,980 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+  <!ATTLIST tag destination CDATA #IMPLIED>
+  <!ATTLIST tag transition CDATA #IMPLIED>
+  <!ATTLIST tag container CDATA #IMPLIED>
+  <!ATTLIST tag filename CDATA #IMPLIED>
+
+<html class="night-mode">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Skeleton.css</title>
+        <meta name="description" content="Guide for Skeleton.css style framework.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="skeleton.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="skeleton.js"></script>
+    </head>
+
+     <script>
+		//clearOnRefresh = true;
+		extraScrollOffset = -85;
+	</script>
+<style>
+	body {
+		background-image: url(images/skelly.png);
+		background-repeat: no-repeat;
+		background-position: right top;
+		background-attachment: fixed;
+		font-size: 12pt;
+	}
+	section {
+		margin: 3em 0;
+		padding-bottom: 3em;
+		border-bottom: 7px dotted rgba(0,0,0,.05);
+	}
+		section:first-child {
+			margin-top: 0;
+		}
+	code, .snippet {
+		font-family: Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	}
+		code {
+			color: #BF781E;
+		}
+		.night-mode code {
+			color: #FF8F00;
+		}
+		.snippet {
+			display: block;
+			background-color: rgba(0,0,0,.7);
+			padding: 1em 2em;
+			color: rgba(255,255,255,.8);
+		}
+		.night-mode .snippet {
+			background-color: rgba(255,255,255,.1);
+		}
+	.guide-title {
+		font-size: 1.75em;
+		text-align: center;
+		font-weight: lighter;
+		color: white;
+		text-shadow: 1px 1px 3px rgba(0,0,0,.2);
+		margin: 0;
+		cursor: default;
+		padding: 0;
+		text-align: left;
+		box-shadow: 0px 2px 10px rgba(0,0,0,.25);
+		width: 100%;
+		z-index: 5;
+		overflow: hidden;
+		padding: .4em .5em;
+		position: fixed;
+		top: 0;
+		background-color: MediumTurquoise;
+	}
+		.guide-title:hover {
+			text-shadow: 1px 1px 40px rgba(0,0,0,1);
+		}
+
+	.navigator {
+		margin-top: 55px;
+		position: relative;
+	}
+		.navigator__nav {
+			top: 55px;
+			width: 200px;
+			border-right: 1px solid rgba(0,0,0,.1);
+		}
+		.navigator__content {
+			width: calc(100% - 200px);
+			max-width: 1000px;
+			padding-left: 100px;
+		}
+
+</style>
+
+
+
+<body class="theme--magenta">
+	<h1 class="guide-title t-primary">Skeleton</h1>
+	<div class="navigator">
+		<nav class="navigator__nav"></nav>
+		<div class="navigator__content">
+
+			<section class="navigator__section" id="intro" name="Introduction">
+				<p>Welcome to Skeleton, a framework for prototyping interactive UIs quickly and easily. Skeleton consists of a CSS file and a Javascript file that work together to take the hassle out of styling common UI elements and emulating common forms of interactivity. It is visually influenced by both Epic's style guide and Google's Material Design.</p>
+
+				<h2>What can it do?</h2>
+				<p>This guide covers most of Skeleton's current functionality and demonstrates how to use it. If you have any requests for future enhancements, contact <a href="http://guru/Staff/EmployeeProfile.aspx?id=17883" target="_top">Cathy Fisher</a>.</p>
+
+				<h2>How do I use it?</h2>
+				<p>Use SVN to check out your own copy of Skeleton from this repository:</p>
+				<p class="snippet">
+					http://einstein/svn3/misc/UX/Skeleton
+				</p>
+				<p>
+				Use the provided <code>template.html</code> as a jumping-off point for building your own prototype. These styles are meant to be extended and tweaked as needed in your project, so feel free to override. </p>
+				<p>Happy prototyping! :)</p>
+			</section>
+
+			<h1 class="navigator__header guide-heading" id="basics" name="The Basics">The Basics</h1>
+
+			<!--============================================================================================
+			    Headings
+			=============================================================================================-->
+			<section class="navigator__section" id="text-styles" name="Text">
+
+				<h2 class="guide-heading">Text</h2>
+
+				<div class="demo">
+					<h1>I'm an H1</h1>
+					<h2>I'm an H2</h2>
+					<h3>I'm an H3</h3>
+					<h4>I'm an H4</h4>
+					<h5>I'm an H5</h5>
+					<p>Oh yeah, and there are classes that do the same thing as heading tags. For example, here's <span class="h3">a span pretending to be an H3</span>
+				</div>
+
+				<div class="demo">
+					<p>Some text needs to be <strong>strong</strong> and other text needs to be <em>emphasized</em>. 
+					Or <span class="underline">underlined</span>. Or <span class="strike">struck out</span>. Or in <span class="all-caps">all caps</span>.</p>
+					<p class="big">Sometimes you just want to get your point across.</p>
+				</div>
+
+				<div class="demo">
+					<p>A standard hyperlink: <a class="link" href="#">Link</a></p>
+					<p>A link that moves the user into another context: <a class="link link--jump" href="#">Jump Link</a></p>
+					<p>A link that opens a popup: <a class="link link--popup" href="#">Popup Link</a></p>
+					<p>We use cool vector-based SVG icons, so they can scale up to match whatever font size you want to use, <span class="h1 link link--jump">like this</span>
+				</div>
+			</section>
+
+
+			<!--============================================================================================
+			    Buttons
+			=============================================================================================-->
+			<section class="navigator__section" id="buttons" name="Buttons">
+				<h2 class="guide-heading">Buttons</h2>
+				<div class="demo">
+					<p>Here's a basic button and a link styled to look like a button using the <code>.button</code> class.</p>
+					<button class="button--basic">Button</button>
+					<a class="button button--basic">Anchor Button</a>
+
+					<p>Here's a primary action button. The background color should be inherited from the Hyperspace theme.</p>
+					<button class="button--primary">Button</button>
+
+					<p>Here's a flat button, which works well in modal dialogues or any other screen with a limited number of elements.</p>
+					<button class="button--flat">Button</button>
+
+					<p>Here's an inactive button.</p>
+					<button class="inactive">Button</button>
+
+					<p>If you want buttons that act as toggles/checkboxes, try these:</p>
+					<button class="button--toggle">Toggle Me</button>
+
+					<p>Or multi-state buttons that act like radio buttons:</p>
+					<div class="button button--multi">
+		                <span class="button--multi__state pressed">State 1</span><span class="button--multi__state">State 2</span><span class="button--multi__state">State 3</span>
+		            </div>
+		            <p>Buttons that get a lot of play can also have icons. Here are some commonly used icon-buttons:</p>
+		            <p>
+			            <button class="button--primary button--with-icon"><img class="vector" filename="accept"/>Accept</button>
+			            <button class="button--with-icon"><img class="vector" filename="accept"/>Accept</button>
+			            <button class="button--flat button--with-icon"><img class="vector" filename="accept"/>Accept</button>
+			        </p>
+			        <p>
+			            <button class="button--primary button--with-icon"><img class="vector" filename="add"/>Add</button>
+			            <button class="button--with-icon"><img class="vector" filename="add"/>Add</button>
+			            <button class="button--flat button--with-icon"><img class="vector" filename="add"/>Add</button>
+			        </p>
+			        <p>
+			            <button class="button--with-icon"><img class="vector" filename="cancel"/>Delete</button>
+			            <button class="button--flat button--with-icon"><img class="vector" filename="cancel"/>Delete</button>
+			        </p>
+			        <p>
+			            <button class="button--with-icon"><img class="vector" filename="edit"/>Edit</button>
+			            <button class="button--flat button--with-icon"><img class="vector" filename="edit"/>Edit</button>
+			        </p>
+
+			        <p>Here's a button group, a collection of related inline buttons. There should generally only be one primary action button in a button group.</p>
+					<div class="button-group">
+						<button class="button--with-icon inactive"><img class="vector" filename="cancel"/>Delete</button>
+						<button class="button--with-icon"><img class="vector" filename="edit"/>Edit</button>
+						<button>Cancel</button>
+						<button class="button--primary button--with-icon"><img class="vector" filename="accept"/>Accept</button>
+					</div>
+				</div>
+			</section>
+
+			<!--============================================================================================
+			    Forms
+			=============================================================================================-->
+			<section class="navigator__section" id="forms" name="Forms">
+				<h2 class="guide-heading">Forms</h2>
+				<div class="demo">
+					<form>
+						<p>Forms come in a lot of different...forms. Let's formsplore.</p>
+
+						<p>Usability research tells us that the most usable position to put a label is immediately above its corresponding field.</p>
+
+							<label>Thing One<input type="text" /></label>
+							<label>Thing Two<input type="text" /></label>
+							<label>Thing the Third<input type="text" /></label>
+
+						<p>As I'm sure you know from your karate training, labels positioned above a field should always be in title case. If you really want an inline field, however, you can always just add the <code>.inline</code> class to your <code>input</code> element.</p>
+
+						<label>Thing four: <input type="text" class="inline" /></label>
+
+						<p>Okay, so some of you probably still want to make an old-timey VB-looking form:</p>
+
+						<div class="columns columns--two">
+							<div class="column">
+								<label class="label label--aligned">Thing five:<input type="text"></label>
+								<label class="label label--aligned">Thing six:<input type="text"></label>
+								<label class="label label--aligned">Thing seven:<input type="text" id="thing-7"></label>
+							</div>
+							<div class="column">
+								<label class="label label--aligned">Thing eight:<input type="text"></label>
+								<label class="label label--aligned">Thing nine:<input type="text"></label>
+								<label class="label label--aligned">Thing ten:<input type="text"></label>
+							</div>
+						</div>
+
+						<p>You can also use checkboxes:</p>
+						<input type="checkbox" id="formscheck1" value="checkone" />
+						<label for="formscheck1">Check 1</label>
+						<input type="checkbox" id="formscheck2" value="checktwo" />
+						<label for="formscheck2">Check 2</label>
+						<input type="checkbox" id="formscheck3" value="checkthree"  />
+						<label for="formscheck3">Check 3</label>
+
+						<p>Or radio buttons:</p>
+						<input type="radio" id="formsradio1" name="formsradio" value="one" checked />
+						<label for="formsradio1">Option 1</label>
+						<input type="radio" id="formsradio2" name="formsradio" value="two"/>
+						<label for="formsradio2">Option 2</label>
+						<input type="radio" id="formsradio3" name="formsradio" value="three"/>
+						<label for="formsradio3">Option 3</label>
+					</form>
+
+					<p>Behind the scenes, Skeleton will store any value the user puts into an <code>input</code> element in the browser's session storage. Values are indexed by the ID of the <code>input</code> element. If you don't explicitly specify the <code>input</code>'s ID, Skeleton will give it one. For example:</p>
+					<button onclick="debug(sessionStorage.getItem('thing-7'));">What's the stored value of thing seven?</button>
+
+					<p>On page refresh, by default it will re-populate fields with the user-entered values. If you want to override this behavior so that fields are emptied on refresh, add this to your prototype's local Javascript, after your reference to skeleton.js:</p>
+
+					<p class="snippet">
+						clearOnRefresh = true;
+					</p>
+
+				</div>
+
+			</section>
+
+			<!--============================================================================================
+			    Cards
+			=============================================================================================-->
+			<section class="navigator__section" id="cards" name="Cards">
+				<h2 class="guide-heading">Cards</h2>
+
+				<p>This card fills 100% of the width of its container, can be expanded and collapsed, and can show a special summary section when collapsed if desired.</p>
+
+				<!-- Basic Card -->
+				<div class="card card--full">
+					<header class="card__header">
+						<h3 class="card__header__text">Basic Card</h3>
+					</header>
+					<div class="card__summary" style="display:none;">
+						It just has a bunch of fake Latin in it.
+					</div>
+					<div class="card__content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod porttitor posuere. Maecenas consectetur mi sed magna rhoncus, non blandit tellus eleifend. Fusce dignissim mi turpis, sit amet sodales nisi consectetur vitae. Vivamus vestibulum risus eget adipiscing posuere. Proin ac egestas erat, at faucibus dolor. Morbi non leo enim. Donec accumsan dictum elit vehicula aliquet. Quisque sed tincidunt arcu. Nullam a dolor vel tellus interdum tempor. Etiam pharetra faucibus neque, rhoncus pellentesque ante faucibus at. Aliquam pellentesque urna vitae est volutpat condimentum. Phasellus varius a ante ac venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur porttitor risus ac rhoncus scelerisque. Pellentesque lobortis est et libero aliquet, ac luctus lacus laoreet. Morbi pharetra nibh ac vulputate consectetur.</p>
+						<footer class="card__footer">A footer that maybe talks about caveats to to all the important points made here.</footer>
+					</div>
+				</div>
+
+				<!-- Collapsible Card -->
+				<div class="card card--full card--expandable expanded">
+					<header class="card__header">
+						<h3 class="card__header__text">Collapsible Card</h3>
+					</header>
+					<div class="card__summary" style="display:none;">
+						You can use the <code>.card__summary</code> class to give a preview of what's in the expanded card.
+					</div>
+					<div class="card__content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod porttitor posuere. Maecenas consectetur mi sed magna rhoncus, non blandit tellus eleifend. Fusce dignissim mi turpis, sit amet sodales nisi consectetur vitae. Vivamus vestibulum risus eget adipiscing posuere. Proin ac egestas erat, at faucibus dolor. Morbi non leo enim. Donec accumsan dictum elit vehicula aliquet. Quisque sed tincidunt arcu. Nullam a dolor vel tellus interdum tempor. Etiam pharetra faucibus neque, rhoncus pellentesque ante faucibus at. Aliquam pellentesque urna vitae est volutpat condimentum. Phasellus varius a ante ac venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur porttitor risus ac rhoncus scelerisque. Pellentesque lobortis est et libero aliquet, ac luctus lacus laoreet. Morbi pharetra nibh ac vulputate consectetur.</p>
+					</div>
+				</div>
+
+				<!-- Status Card -->
+				<div class="card card--full card--red">
+					<header class="card__header">
+						<h3 class="card__header__text">Card with a Status</h3>
+					</header>
+					<div class="card__content">
+						<p>This card has an error of some sort or an explicitly negative connotation.</p>
+					</div>
+				</div>
+
+				<p>CSS flexbox functionality also lends itself really well to card positioning. You can put multiple cards in a row next to each other by using a <code>.flex-card-group</code> container in combination with adding <code>.card--flex</code> to each card within.
+
+				<div class="flex-card-group">
+					<div class="card card--flex">
+						<header class="card__header">
+							<h3 class="card__header__text">Flex Card 1</h3>
+						</header>
+						<div class="card__content" style="text-align: center;">
+							<span class="big">Badge!</span>
+						</div>
+					</div>
+					<div class="card card--flex">
+						<header class="card__header">
+							<h3 class="card__header__text">Flex Card 2</h3>
+						</header>
+						<div class="card__content" style="text-align: center;">
+							<span class="big">Something</span>
+							<div>Maybe a description</div>
+						</div>
+					</div>
+				</div>
+
+				<p>Each card in a <code>.flex-card-group</code> will be the height of the tallest card by default. The cards' widths will also adjust according to their contents unless specified -- if the contents of a card are too wide, the next card will wrap to the next line. You can also control the proportions of each card by setting its <code>flex-grow</code> attribute. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">This is a good resource</a> for learning more about all the cool stuff you can do with flexboxes.</p>
+
+				<div class="flex-card-group">
+					<div class="card card--flex">
+						<header class="card__header">
+							<h3 class="card__header__text">Flex Card 1</h3>
+						</header>
+					</div>
+					<div class="card card--flex">
+						<header class="card__header">
+							<h3 class="card__header__text">Flex Card 2</h3>
+						</header>
+					</div>
+					<div class="card card--flex">
+						<header class="card__header">
+							<h3 class="card__header__text">Flex Card 3</h3>
+						</header>
+					</div>
+				</div>
+
+				<p>You can put any number of cards into a <code>.flex-card-group</code> without having to add any extra code.</p>
+
+			</section>
+
+			<!--============================================================================================
+			    Tables
+			=============================================================================================-->
+			<section class="navigator__section" id="tables" name="Tables">
+				<h2 class="guide-heading">Tables</h2>
+				<div class="demo">
+					<p>The humble table is a commonly (mis)used HTML element in Epic's software. Let's explore responsible ways to use tables.</p>
+
+					<table class="table">
+						<thead class="table__header">
+							<h4>Pets I Have Owned</h4>
+							<tr class="table__header__columns">
+								<th>Name</th>   <th>Species</th> <th>Born</th> <th>Died</th> <th class="right">Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Blubs</td>  <td>fish</td>    <td>1990</td> <td>1991</td> <td class="right">$8.00</td>
+							</tr>
+							<tr>
+								<td>Sandy</td>  <td>dog</td>     <td>1991</td> <td>2007</td> <td class="right">$300.00</td>
+							</tr>
+							<tr>
+								<td>Max</td>    <td>dog</td>     <td>2010</td> <td>N/A</td>  <td class="right">$200.00</td>
+							</tr>
+							<tr>
+								<td>Buzz</td>   <td>fly</td>     <td>2014</td> <td>2014</td> <td class="right">$0.00</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<p>Here's the same table with zebra-striping.</p>
+					<table class="table table--zebra">
+						<thead class="table__header">
+							<h4>Pets I Have Owned</h4>
+							<tr class="table__header__columns">
+								<th>Name</th>   <th>Species</th> <th>Born</th> <th>Died</th> <th class="right">Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Blubs</td>  <td>fish</td>    <td>1990</td> <td>1991</td> <td class="right">$8.00</td>
+							</tr>
+							<tr>
+								<td>Sandy</td>  <td>dog</td>     <td>1991</td> <td>2007</td> <td class="right">$300.00</td>
+							</tr>
+							<tr>
+								<td>Max</td>    <td>dog</td>     <td>2010</td> <td>N/A</td>  <td class="right">$200.00</td>
+							</tr>
+							<tr>
+								<td>Buzz</td>   <td>fly</td>     <td>2014</td> <td>2014</td> <td class="right">$0.00</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<p>And with row lines.</p>
+
+					<table class="table table--row-lines">
+						<thead class="table__header">
+							<h4>Pets I Have Owned</h4>
+							<tr class="table__header__columns">
+								<th>Name</th>   <th>Species</th> <th>Born</th> <th>Died</th> <th class="right">Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Blubs</td>  <td>fish</td>    <td>1990</td> <td>1991</td> <td class="right">$8.00</td>
+							</tr>
+							<tr>
+								<td>Sandy</td>  <td>dog</td>     <td>1991</td> <td>2007</td> <td class="right">$300.00</td>
+							</tr>
+							<tr>
+								<td>Max</td>    <td>dog</td>     <td>2010</td> <td>N/A</td>  <td class="right">$200.00</td>
+							</tr>
+							<tr>
+								<td>Buzz</td>   <td>fly</td>     <td>2014</td> <td>2014</td> <td class="right">$0.00</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<p>And that's it! Tables are meant to be used for displaying related data, they're not for layout formatting.</p>
+				</div>
+
+			</section>
+
+			<!--============================================================================================
+			    Modal Popups
+			=============================================================================================-->
+			<section class="navigator__section" id="modals" name="Modals">
+				<h2 class="guide-heading">Modals</h2>
+				<p>Modals are popups that take focus away from everything else on the screen until the modal is dismissed. They're good for
+				handling error messages or confirmation dialogues.</p>
+				<button class="button--with-icon" onclick="openModal('modal1');"><img class="vector" filename="popuplink">Launch the Modal</button>
+
+				<div class="modal-overlay">
+					<div class="modal card" id="modal1">
+						<header class="card__header">
+							<h3 class="card__header__text">FYI</h3>
+						</header>
+						<div class="card__content">
+							<p>You've recently made an unknown error that will result in all data being corrupted. Your computer will overheat in 25 seconds.</p>
+							<div class="button-group">
+								<button class="button--flat modal__close-button">Yes</button>
+								<button class="button--flat modal__close-button">No</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+			<!--============================================================================================
+			    Colors
+			=============================================================================================-->
+			<section class="navigator__section" id="colors" name="Colors">
+				<h2 class="guide-heading">Colors</h2>
+
+				<h3 class="guide-heading">Themes</h3>
+				<p>Quickly change the theme color of your prototype by changing the theme class on your <code>body</code> element.</p>
+
+				<style>
+					.theme-switchers li {
+						border: solid;
+					    border-width: 0;
+					    background-color: transparent;
+					    cursor: pointer;
+					    border-left-width: 20px;
+					    padding-left: .5em;
+					}
+				</style>
+				<ul class="theme-switchers">
+					<li onclick="switchTheme('theme--magenta');" class="magenta-text">Magenta</li>
+					<li onclick="switchTheme('theme--purple');" class="purple-text">Purple</li>
+					<li onclick="switchTheme('theme--violet');" class="violet-text">Violet</li>
+					<li onclick="switchTheme('theme--indigo');" class="indigo-text">Indigo</li>
+					<li onclick="switchTheme('theme--sky');" class="sky-text">Sky</li>
+					<li onclick="switchTheme('theme--cyan');" class="cyan-text">Cyan</li>
+					<li onclick="switchTheme('theme--teal');" class="teal-text">Teal</li>
+					<li onclick="switchTheme('theme--green');" class="green-text">Green</li>
+
+				</ul>
+
+				<p>Any element with <code>.t-primary</code> will use the theme's color as a background. Anything with <code>.t-text</code> will use the theme's color as the text/border color. Whichever element you applied the theme class to will get a semi-transparent version of the theme color as a background. Primary and flat buttons also inherit theme color:</p>
+
+				<button class="button button--primary">Like this</button>
+				<button class="button button--flat">Or this</button>
+				<p>
+					<input type="checkbox" id="check2" checked/>
+					<label for="check2">Plus checkboxes</label>
+
+					<input type="radio" id="radio2" checked value="1" />
+					<label for="radio2">And radio buttons</label>
+				</p>
+
+				<h3 class="guide-heading">Palette</h3>
+				<p>More generically, here are the major colors Skeleton provides:</p>
+				<p>If the above doesn't meet your needs, here are the colors we use in general. Be mindful of semantic/alert colors and color blindness.</p>
+		    	<ul>
+		    		<li class="red-bg">Red</li>
+		    		<li class="pink-bg">Pink</li>
+		    		<li class="magenta-bg">Magenta</li>
+		    		<li class="purple-bg">Purple</li>
+		    		<li class="violet-bg">Violet</li>
+		    		<li class="indigo-bg">Indigo</li>
+		    		<li class="blue-bg">Blue</li>
+		    		<li class="sky-bg">Sky</li>
+		    		<li class="cyan-bg">Cyan</li>
+		    		<li class="teal-bg">Teal</li>
+		    		<li class="green-bg">Green</li>
+		    		<li class="avocado-bg">Avocado</li>
+		    		<li class="lime-bg">Lime</li>
+		    		<li class="yellow-bg">Yellow</li>
+		    		<li class="amber-bg">Amber</li>
+		    		<li class="pumpkin-bg">Pumpkin</li>
+		    		<li class="orange-bg">Orange</li>
+		    	</ul>
+
+				<p>You can style an element with any of those colors by applying a color class:</p>
+				<ul>
+					<li class="amber-text">.[color name]-text</li>
+					<li class="amber-bg">.[color name]-bg</li>
+					<li class="amber-border" style="border-width: 1px; border-style: solid;">.[color name]-border</li>
+					<li ><img class="vector amber-fill" filename="folder">.[color name]-fill </li>
+				</ul>
+			</section>
+
+			<!--============================================================================================
+			    Accessibility
+			=============================================================================================-->
+			<section class="navigator__section" id="accessibility" name="Accessibility">
+				<h2 class="guide-heading">Accessibility</h2>
+				<p>Skeleton has two additional modes that allow for use in both dark environments and for users with impaired vision: Night Mode and High-Contrast Mode. Both will affect the colors used on most elements, including icons. High-Contrast Mode will also increase the sizes of fonts and various elements.</p>
+
+				<p><button onclick="switchMode('');">Standard Mode</button><button onclick="switchMode('night-mode');">Night Mode</button><button onclick="switchMode('high-contrast');">High-Contrast Mode</button></p>
+
+				Add the <code>night-mode</code> or <code>high-contrast</code> class to the <code>html</code> element of your prototype to enable them.
+			</section>
+
+			<!--============================================================================================
+			    Icons
+			=============================================================================================-->
+			<section class="navigator__section" id="icons" name="Icons">
+				<h2 class="guide-heading">Icons</h2>
+				<p>Everyone loves SVGs because of their resolution-independence and stylability, but including SVG code in your HTML can be messy and annoying. Skeleton lets you easily swap in fully stylable SVG code with an image tag! Just insert the following code where you want your SVG to go, with the value of the <code>filename</code> attribute being the name of your SVG file (put it in the Icons folder):</p>
+				<p class="snippet">
+					&lt;img class="vector" filename="folder"/&gt;
+				</p>
+
+				<p>Skeleton.js will swap that out with the SVG code, resulting in this: <img class="vector" filename="folder"></p>
+
+				<p>By default, icons will be sized according to the text around them, but that can be easily overridden. The wrapper for your SVG will inherit the same classes you set on the <code>img</code> element initially, for ease of CSSing.</p>
+
+				<p>So you can tell an icon to just have the theme color: <img class="vector t-primary-fill" filename="clock"></p>
+				<p>Or any of the standard colors:
+					<img class="vector pink-fill" filename="forbidden">
+					<img class="vector orange-fill" filename="encounter">
+					<img class="vector amber-fill" filename="hospital">
+					<img class="vector green-fill" filename="message">
+					<img class="vector cyan-fill" filename="patient">
+					<img class="vector blue-fill" filename="search">
+					<img class="vector purple-fill" filename="settings">
+					etc. etc.
+				</p>
+
+				<p>Or get real big: <img class="vector huge" filename="charge"></p>
+
+				<p>Here are all the icons that come included with Skeleton:</p>
+				<div class="icon-grid">
+				        	<span class='icon-grid__icon'><img class='vector' filename='accept'><p>accept</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='action'><p>action</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='add'><p>add</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='adjustment-credit'><p>adjustment-credit</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='adjustment-debit'><p>adjustment-debit</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='admin'><p>admin</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='alert-abnormal'><p>alert-abnormal</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='alert-panic'><p>alert-panic</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='appointment'><p>appointment</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='arrow-down'><p>arrow-down</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='arrow-left'><p>arrow-left</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='arrow-right'><p>arrow-right</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='arrow-up'><p>arrow-up</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='attach'><p>attach</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='bed'><p>bed</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='blood'><p>blood</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='calculator'><p>calculator</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='cancel'><p>cancel</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='charge'><p>charge</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='chart-closed'><p>chart-closed</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='chart-open'><p>chart-open</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='chart-save'><p>chart-save</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='clock'><p>clock</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='collapse'><p>collapse</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='communication'><p>communication</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='contrast'><p>contrast</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='date'><p>date</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='day'><p>day</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='edit'><p>edit</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='encounter'><p>encounter</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='expand'><p>expand</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='flag-blue'><p>flag-blue</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='flag-green'><p>flag-green</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='flag-purple'><p>flag-purple</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='flag-salmon'><p>flag-salmon</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='flag-tan'><p>flag-tan</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='flag'><p>flag</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='folder'><p>folder</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='forbidden'><p>forbidden</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='hospital'><p>hospital</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='info'><p>info</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='insurance'><p>insurance</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='jumplink'><p>jumplink</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='latex'><p>latex</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='link'><p>link</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='list'><p>list</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='lock'><p>lock</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='med'><p>med</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='message'><p>message</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='night'><p>night</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='patient'><p>patient</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='payment'><p>payment</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='pb-visit'><p>pb-visit</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='pin'><p>pin</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='popuplink'><p>popuplink</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='print'><p>print</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='provider'><p>provider</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='providers'><p>providers</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='question'><p>question</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='reassign'><p>reassign</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='recommended'><p>recommended</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='redo'><p>redo</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='refresh'><p>refresh</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='refund'><p>refund</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='remove'><p>remove</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='report-default'><p>report-default</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='report-linked'><p>report-linked</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='report'><p>report</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='required'><p>required</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='resize-down'><p>resize-down</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='resize-up'><p>resize-up</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='restore'><p>restore</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='results-high-offscale'><p>results-high-offscale</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='results-high-panic'><p>results-high-panic</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='results-high'><p>results-high</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='results-low-offscale'><p>results-low-offscale</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='results-low-panic'><p>results-low-panic</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='results-low'><p>results-low</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='run'><p>run</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='screening'><p>screening</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='search'><p>search</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='settings'><p>settings</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='share-note'><p>share-note</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='shared'><p>shared</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='undo'><p>undo</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='user'><p>user</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='wait'><p>wait</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='wand'><p>wand</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='zoomIn'><p>zoomIn</p></span>
+				        <span class='icon-grid__icon'><img class='vector' filename='zoomOut'><p>zoomOut</p></span>
+				</div>
+
+				<style>
+					.icon-grid__icon {
+						display: inline-block;
+						width: 18%;
+						text-align: center;
+						padding-top:25px;
+					}
+					.icon-grid__icon svg {
+						width: 50px;
+						height: 50px;
+					}
+					.icon-grid p {
+						margin:0;
+						margin-top: 10px;
+					}
+				</style>
+			</section>
+
+			<h1 class="guide-heading" name="Interactivity">Interactivity</h1>
+
+
+			<!--============================================================================================
+			    Selectable Elements
+			=============================================================================================-->
+			<section class="navigator__section" id="selectable-elems" name="Selectable Elements">
+				<h2 class="guide-heading">Selectable Elements</h2>
+				<div class="demo">
+					<p>Make an element in your prototype selectable by adding the <code>.selectable</code> class to it:</p>
+					<p class="selectable" id="selectableExample">Select me!</p>
+					<p>Once you've selected something, you can use the up and down arrow keys to move through the selectable elements on the page.</p>
+					<ul>
+						<li class="selectable" id="selectableListItem1">I'm selectable</li>
+						<li class="selectable" id="selectableListItem2">Me too</li>
+						<li class="selectable" id="selectableListItem3">Me three</li>
+					</ul>
+					<p>We also store the ID attribute of whatever element is currently selected in the <code>currentSelected</code> variable in case you want to use it to trigger some other behavior.</p>
+					<button onclick="debug(currentSelected);">What's selected right now?</button>
+					<p>If you have an element you want to encourage the user to click on, but isn't selectable, add the <code>.interactable</code> class to it. It will have a hover effect and change the cursor to a pointer but can't be selected. This can be helpful to illustrate behavior and suggest click targets to users who are new to a UI.</p>
+				</div>
+			</section>
+
+
+			<!--============================================================================================
+			    Inline Editing
+			=============================================================================================-->
+			<section class="navigator__section" id="inline-editing" name="Inline Editing">
+				<h2 class="guide-heading">Inline Editing</h2>
+				<div class="demo">
+					<p>Make your UI more user-friendly by letting users edit content inline. This is much more intuitive and easier to understand than opening a separate popup to edit data. Here's an example:</p>
+					<p><span class="label">Your favorite color:</span><span class="editable">blue</span></p>
+					<p>It's as easy as adding <code>.editable</code> to your element.</p>
+				</div>
+			</section>
+
+			<!--============================================================================================
+			    Changing State
+			=============================================================================================-->
+			<section class="navigator__section" id="changing-state" name="Changing State">
+				<style>
+					#state-change-demo .state {
+						padding: 70% 2em;
+						text-align: center;
+					}
+				</style>
+				<h2 class="guide-heading">Changing State</h2>
+				<div class="demo">
+					<p>If you want your prototype to be able to move between various modes and states, you can do that using a <code>.dynamic-area</code> container.</p>
+					<div id="animate-demo">
+						<div class="dynamic-area dynamic-area--state-change mobile" id="state-change-demo">
+							<div class="state cyan-bg" id="state-1" style="color: white">
+								<h1>First State</h1>
+								<button class="state-switch" container="state-change-demo" destination="state-2" transition="slide-left">
+								  Go to State 2
+								</button>
+							</div>
+							<div class="state pumpkin-bg" id="state-2" style="color: white">
+								<h1>Second State</h1>
+								<a class="state-switch" container="state-change-demo" destination="state-3" transition="slide-up">
+								  Go to State 3
+								</a>
+							</div>
+							<div class="state green-bg" id="state-3" style="color: white">
+								<h1>Third State</h1>
+								<div class="state-switch" container="state-change-demo" destination="state-1" transition="slide-right">
+								  Go to State 1
+								</div>
+							</div>
+						</div>
+					</div>
+					<p>Currently only slide-left, slide-right, slide-up, slide-down, and crossfade are available. The <code>.mobile</code> class is only specifying the <code>.dynamic-area</code>'s size in this case. You can make the area any size or shape you want. If a <code>transition</code> attribute is not specified, there will be no animation.</p>
+					<p>As with forms, Skeleton will remember the state of a <code>.dynamic-area</code> container for the length of a session.</p>
+				</div>
+
+				<h2 class="guide-heading" name="tabs">Tabs</h2>
+				<p>Dynamic areas can also be used to make tabbed displays:</p>
+
+				<div class="tabbed-container">
+					<nav class="tabs">
+							<a class="tab state-switch current" container="tab-demo" destination="tab-content-1">Tab One</a>
+							<a class="tab state-switch" container="tab-demo" destination="tab-content-2">Tab Two</a>
+							<a class="tab state-switch" container="tab-demo" destination="tab-content-3">Tab Three</a>
+					</nav>
+					<div class="dynamic-area dynamic-area--state-change tabbed-container__content" id="tab-demo">
+						<div class="state" id="tab-content-1">
+							<p>Here is the content in the first tab.</p>
+						</div>
+						<div class="state" id="tab-content-2">
+							<p>Here is the content in the second tab.</p>
+						</div>
+						<div class="state" id="tab-content-3">
+							<p>Here is the content in the third tab.</p>
+							<img src="http://i.imgur.com/Vmlze1R.gif">
+						</div>
+					</div>
+				</div>
+
+				<p>If you want to include a card or some more complex content in your tabbed area, consider using a transparent tab area with a more
+					hyperlink-style tab by using the <code>.tabbed-container--transp</code> class.</p>
+				<div class="tabbed-container tabbed-container--transp">
+					<nav class="tabs">
+							<a class="tab state-switch current" container="tab-demo-trans" destination="tab-trans-content-1">Tab One</a>
+							<a class="tab state-switch" container="tab-demo-trans" destination="tab-trans-content-2">Tab Two</a>
+							<a class="tab state-switch" container="tab-demo-trans" destination="tab-trans-content-3">Tab Three</a>
+					</nav>
+					<div class="dynamic-area dynamic-area--state-change tabbed-container__content" id="tab-demo-trans">
+						<div class="state" id="tab-trans-content-1">
+							<p>Here is the content in the first tab.</p>
+						</div>
+						<div class="state" id="tab-trans-content-2">
+							<p>Here is the content in the second tab.</p>
+						</div>
+						<div class="state" id="tab-trans-content-3">
+							<p>Here is the content in the third tab.</p>
+							<img src="http://i.imgur.com/Vmlze1R.gif">
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<h1 class="guide-heading" name="Epic Controls">Epic Controls</h1>
+			<!--============================================================================================
+			    Form Trees
+			=============================================================================================-->
+			<section class="navigator__section" id="form-trees" name="Form Trees">
+				<h2 class="guide-heading">Form Trees</h2>
+				<p>At its heart, a form tree is really a flat or nested list (or series of lists) of hyperlinks, which makes it incredibly similar to most web navigation.</p>
+				<nav class="tree">
+					<ul class="tree__section tree__section--blue">
+						<li class="tree__main-node current visited">
+							<img class="vector" filename="folder" />Blue Main Node 1
+						</li>
+						<ul>
+							<li>Blue Child 1</li>
+							<li>Blue Child 2</li>
+							<li>Blue Child 3</li>
+						</ul>
+						<li class="tree__main-node"><img class="vector" filename="folder" />Blue Main Node 2</li>
+						<ul>
+							<li class="tree__main-node"><img class="vector" filename="folder" />Blue Child Main</li>
+							<ul>
+								<li>Blue Double Child 1</li>
+								<li>Blue Double Child 2</li>
+							</ul>
+						</ul>
+					</ul>
+
+					<ul class="tree__section tree__section--green">
+						<li class="tree__main-node"><img class="vector" filename="folder" />Green Main Node 1</li>
+						<ul>
+							<li>Green Child 1</li>
+							<li>Green Child 2</li>
+							<li>Green Child 3</li>
+						</ul>
+					</ul>
+				</nav>
+			</section>
+
+			<!--============================================================================================
+			    Navigators
+			=============================================================================================-->
+			<section class="navigator__section" id="navigators" name="Navigators">
+				<h2 class="guide-heading">Navigators</h2>
+				<p>Navigators allow you to quickly move between cards of related information, each of which can independently toggle between editable and read-only. Fun fact: this page is actually a navigator!</p>
+				<div class="center">
+					<a href="demo-navigator.html">
+						<img src="images/navigator.png" style="margin: auto;">
+						<h3>Navigator Demo</h3>
+					</a>
+				</div>
+
+			</section>
+
+
+			<!--============================================================================================
+			    List View
+			=============================================================================================-->
+			<section class="navigator__section" id="list-view" name="List Views">
+				<h2 class="guide-heading">List View</h2>
+				<p>List views are commonly used in situations like workqueues and patient lists to show both summary and detailed information in one screen.</p>
+				<div class="center">
+					<a href="demo-list-view.html">
+						<img src="images/list-and-report.png" style="margin: auto;">
+						<h3>List View Demo</h3>
+					</a>
+				</div>
+
+			</section>
+
+
+			<!--============================================================================================
+			    Selector Lists
+			=============================================================================================-->
+			<section class="navigator__section" id="selector-lists" name="Selector Lists">
+				<h2 class="guide-heading">Selector Lists</h2>
+
+				<p>Single-column:</p>
+				<div class="selector-list">
+					<h3 class="selector-list__prompt">Onset</h3>
+					<ul>
+						<li class="selectable">today</li>
+						<li class="selectable">yesterday</li>
+						<li class="selectable">two days ago</li>
+						<li class="selectable">more than 2 days ago</li>
+						<li class="selectable">more than 1 week ago</li>
+					</ul>
+				</div>
+
+				<p>Multi-column:</p>
+				<div class="selector-list selector-list--two-column">
+					<h3 class="selector-list__prompt">Color</h3>
+					<ul>
+						<li class="selectable">blanching</li>
+						<li class="selectable">flesh-colored</li>
+						<li class="selectable">salmon</li>
+						<li class="selectable">erythematous</li>
+						<li class="selectable">hyperpigmented</li>
+					</ul>
+				</div>
+
+				<p>Multiple-select:</p>
+				<div class="selector-list selector-list--two-column">
+					<h3 class="selector-list__prompt">Favorites</h3>
+					<ul>
+						<li><input type="checkbox" id="selCheck1"><label for="selCheck1">Admission Orders</label></li>
+						<li><input type="checkbox" id="selCheck2"><label for="selCheck2">Asthma Follow-Up and Exacerbation</label></li>
+						<li><input type="checkbox" id="selCheck3"><label for="selCheck3">Cardiovascular Risk Assessment</label></li>
+						<li><input type="checkbox" id="selCheck4"><label for="selCheck4">Influenza Syndrome</label></li>
+						<li><input type="checkbox" id="selCheck5"><label for="selCheck5">Strep Throat</label></li>
+					</ul>
+				</div>
+			</section>
+
+			<!--============================================================================================
+			    Hyperspace Shell
+			=============================================================================================-->
+			<!--<section class="navigator__section" id="hyperspace" name="Hyperspace Shell">
+				<h2 class="guide-heading">Hyperspace Shell</h2>
+				<p>You can put your prototype inside an approximation of Hyperspace by adding the <code>.hyperspace</code> class to the <code>html</code> tag of your prototype. Everything within the <code>body</code> tag will be positioned within the activity window area of the Hyperspace shell. <a href="demo-hs-shell.html" target="_blank">Check out an example of this</a>.</p>
+
+				<p>As you can see in the demo, you can also add custom activity toolbar buttons and an activity header. Four Hyperspace window sizes are available: <code>hyperspace--small</code>, <code>hyperspace--medium</code>, <code>hyperspace--large</code>, and <code>hyperspace--very-large</code>. Right now Verdant is the only theme supported.</p>
+			</section>-->
+
+
+
+			<h1 class="guide-heading" name="Utilities">Utilities</h1>
+
+			<!--============================================================================================
+			    Debug
+			=============================================================================================-->
+			<section class="navigator__section" id="debugging" name="Debugging">
+				<h2 class="guide-heading">Debugging</h2>
+				<p>Skeleton has a built-in debugging area where you can dump values in a way that's a little less annoying or disruptive than <code>alert()</code>. Instead you can use <code>debug()</code>. It can handle various data types, including strings, numbers, and arrays (which it will print all the contents of).</p>
+				<button onclick="debug('Hello World');">See it in action</button>
+
+			</section>
+		</div>
+	</div>
+
+</body>
+
+<script>
+	function switchTheme(themeClass) {
+		document.body.className = themeClass;
+	}
+	function switchMode(modeClass) {
+		var doc = $("html")[0];
+		doc.className = modeClass;
+		scrollTo(document.getElementById("accessibility"), false, extraScrollOffset);
+	}
+
+</script>
+</html>

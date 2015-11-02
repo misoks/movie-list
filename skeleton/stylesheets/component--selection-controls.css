@@ -1,0 +1,137 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							   Selection Controls
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+.divider {
+	border-top: 1px solid rgba(0,0,0,.1);
+	margin: .5em 0 .3em;
+}
+.title--with-divider {
+	font-weight: 400;
+	display: inline-block;
+	z-index: 2;
+	position: relative;
+}
+	.title--with-divider:after {
+		content: " ";
+		border-bottom: 1px solid rgba(0,0,0,.15);
+		display: block;
+		position: absolute;
+		top: .6em;
+		left: calc(100% + 10px);
+		width: 2000px;
+		z-index: 1;
+	}
+
+/* Checkboxes and radio buttons */
+.checkbox,
+.radio {
+	position: absolute;
+	opacity: 0;
+}
+.checkbox + label,
+.radio + label {
+	font-size: 1em;
+	color: #263238;
+	display: block;
+	line-height: 1.5;
+}
+	.checkbox:focus + label,
+	.radio:focus + label {
+		font-weight: 600;
+	}
+	.checkbox + label::before,
+	.radio + label::before {
+		display: inline-block;
+	    width: 16px;
+	    height: 16px;
+	    background-color: white;
+	    border: 1px solid gray;
+	    content: " ";
+	    vertical-align: middle;
+	    margin-right: 7px;
+	    box-sizing: border-box;
+	    padding-left: 1px;
+	    color: white;
+	    margin-top: -3px;
+	    line-height: 1;
+	}
+	.radio ~ label::before {
+		border-radius: 16px;
+	}
+	.checkbox:checked + label::before {
+		background-image: url(style-images/check.svg);
+	}
+	.radio:checked + label::before {
+		background-image: url(style-images/radio.svg);
+	}
+	.checkbox:checked + label::before,
+	.radio:checked + label::before {
+		background-color: MediumTurquoise;
+		border-color: MediumTurquoise;
+	}
+
+/*Selector Lists */
+.selector-list {
+	overflow-x: hidden;
+	width: 100%;
+}
+	.selector-list > *  {
+		padding-left: 10px;
+	}
+	.selector-list ul {
+		display: block;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	.selector-list li {
+		display: block;
+		padding: .5em 10px;
+		line-height: 1.5;
+	}
+		.selector-list li:hover {
+			cursor: pointer;
+			background-color: rgba(0,0,0,.05);
+		}
+		.selector-list li.selected {
+
+		}
+	.selector-list--two-column li {
+		display: inline-block;
+		width: calc(100% / 2 - 3px);
+	}
+	.selector-list--three-column li {
+		display: inline-block;
+		width: calc(100% / 3 - 3px);
+	}
+	.selector-list--multi-select li {
+		padding: 0;
+	}
+	.selector-list--multi-select label {
+		display: block;
+		padding: .5em 10px;
+	}
+	.selector-list label:hover,
+	.selector-list input:hover {
+		cursor: pointer;
+	}
+
+/* Selecting */
+.selected,
+.selected:hover {
+    background-color: rgba(174, 223, 246, 1);
+}
+.selectable:hover,
+.interactable:hover {
+    cursor: pointer;
+    background-color: rgba(174, 223, 246, .3);
+}

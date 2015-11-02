@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+  <!ATTLIST tag movieid CDATA #IMPLIED>
+<html lang="en-US" class="night-mode">
+	<head>
+		<title>Movielist</title>
+		<link rel="stylesheet" type="text/css" href="skeleton/skeleton.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	    <script src="skeleton/skeleton.js"></script>
+	    <script src="script.js"></script>
+	    <link rel="shortcut icon" href="favicon.png" />
+    	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	</head>
+	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;" id="icon-definitions">
+		<symbol id='collapse' viewBox="0 0 160 160">
+			<g>
+				<path d="M85,30l40,40v10h-10L85,50H75L45,80H35 V70l40-40H85z"/>
+				<path d="M85,70l40,40v10h-10L85,90H75l-30,30 H35v-10l40-40H85z"/>
+			</g>
+		</symbol>
+		<symbol id='expand' viewBox="0 0 160 160">
+			<g>
+				<path d="M75,120L35,80V70h10l30,30h10l30-30h10 v10l-40,40H75z"/>
+				<path d="M75,80L35,40V30h10l30,30h10l30-30h10 v10L85,80H75z"/>
+			</g>
+		</symbol>
+
+	</svg>
+
+	<body class="theme--magenta">
+
+		<div class="movies">
+			<div class="movies__add-new">
+				<label class="label field field--search">Watched anything recently?
+				<input type="text" id="searchQuery"></label>
+				<button onclick="search();" style="display: none;">Search</button>
+				<ul id="searchResults" class="search-results">
+				</ul>
+			</div>
+
+			<div ng-app="movieApp" ng-controller="moviesCtl" class="movies__stored"> 
+
+		        <label class="label field field--filter filter section--expandable collapsed">
+		        	<div class="section__header">
+			        	<span class="section__header__text title--with-divider">Search
+		        			<svg class="expand-control expand-control--collapse"><use xlink:href="#collapse" /></svg>
+		        			<svg class="expand-control expand-control--expand"><use xlink:href="#expand" /></svg>
+		        		</span>
+	        		</div>
+	        		<div class="section__content">
+		        		<input type="text" ng-model="test">
+		        	</div>
+		        </label>
+		        <ul class="search-results">
+		        	<li class="movie result movie--stored selectable" onClick="examine(this);" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}'> 
+		        		{{ x.title }}
+		        		<span class="movie__year">{{ '(' + x.year + ')' }}</span>
+		          	</li>
+		        </ul> 
+
+		    </div>
+
+		</div>
+
+		<div class="movie-detail">
+			<div class="movie-detail__content">
+				<div class="movie-detail__content__main" id="selected">
+				</div>
+				<div class="watch-fields" id="watch-fields">
+					<label class="label field">Date Watched<input type="date" id="date-field"></label>
+					<label class="label field">Rating<input type="number" id="rating-field" min="1" max="5" step="1">
+				</div>
+				<div class="button-group add-button">
+					<button id="add-button" class="button button--primary " onclick='selectResult();'>I Watched This</button>
+				</div>
+				<div class="button-group delete-button">
+					<button id="delete-button" class="button button--primary" onclick='deleteMovie();'>Remove</button>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+	<script>
+		var app = angular.module('movieApp', []);
+	    app.controller('moviesCtl', function($scope, $http) {
+	        $http.get("db.json").success(function(response) {
+	        	$scope.names = response.records;
+	        });
+	    });
+	</script>
+</html>

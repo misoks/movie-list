@@ -1,0 +1,92 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							     View Controls
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+/* State changing */
+.dynamic-area--state-change {
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+	.dynamic-area--state-change > * {
+		position: absolute;
+	}
+.state {
+	z-index: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+	.state--current {
+		z-index: 1;
+		top: 0;
+		left: 0;
+		display: block;
+		box-shadow: 0px 0px 20px rgba(0,0,0,.25);
+	}
+
+.tabbed-container {
+}
+	.tabs {
+		border-bottom: 1px solid rgba(0,0,0,.15);
+		position: relative;
+	}
+		.tab,
+		a.tab {
+			padding: .75em 1.2em;
+			margin-bottom: -1px;
+			border-left: 1px solid transparent;
+			border-right: 1px solid transparent;
+			color: #78909c;
+			font-size: 14px;
+		}
+		.tab.current,
+		a.tab.current {
+			background-color: white;
+			border-top: 1px solid;
+			border-color: rgba(0,0,0,.15);
+			border-bottom: 1px solid white;
+			margin-bottom: -1px;
+			color: #263238;
+			font-weight: 500;
+		}
+		.tab:hover,
+		a.tab:hover {
+			color: #263238;
+			text-decoration: none;
+		}
+	.tabbed-container__content {
+		margin: auto;
+	    background-color: white;
+	    border: 1px solid rgba(0,0,0,.15);
+	    border-top: 0px;
+	    min-height: 280px;
+	}
+		.tabbed-container__content .state {
+			padding: 15px;
+		}
+
+
+.tabbed-container--transp {
+}
+	.tabbed-container--transp .tabs {
+		border-bottom: 1px solid transparent;
+	}
+	.tabbed-container--transp .tabbed-container__content {
+		background-color: transparent;
+		border: 1px solid transparent;
+	}
+	.tabbed-container--transp .tab.current {
+		background-color: rgba(154,214,253,.5);
+		color: #03a9f4;
+		border: 1px solid transparent;
+	}
+

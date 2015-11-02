@@ -1,0 +1,572 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							         Themes
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+*CAF 10/2015 - Pared down theme list to just colors that play nicer with alerts
+
+===============================================================================*/
+
+
+/*
+
+MAGENTA  ===================================================================
+	Dark:	 #b61e7e
+	Primary: #cf2890
+	Light: 	 #dd3d94
+	Tint: 	 #FDEDF4
+ */
+.theme--magenta .t-dark-bg { 	background-color: #b61e7e; }
+.theme--magenta .t-primary-bg { background-color: #cf2890; }
+.theme--magenta .t-light-bg { 	background-color: #dd3d94; }
+.theme--magenta .t-tint-bg { 	background-color: #FDEDF4; }
+
+.theme--magenta .t-activity-bg,
+.theme--magenta.t-activity-bg {
+	background-color: #FDEDF4;
+}
+.theme--magenta .t-text {
+	color: #cf2890;
+}
+.theme--magenta .t-border,
+.theme--magenta .checkbox:checked + label::before,
+.theme--magenta .radio:checked + label::before {
+	border-color: #cf2890;
+}
+.theme--magenta .t-primary,
+.theme--magenta .button--primary,
+.theme--magenta .checkbox:checked + label::before,
+.theme--magenta .radio:checked + label::before,
+.theme--magenta .selector-list li.selected {
+	background-color: #cf2890;
+}
+.theme--magenta .t-dark,
+.theme--magenta .link--action,
+.theme--magenta .button--flat,
+.theme--magenta .theme-text
+/*.theme--magenta .selector-list li */ {
+	color: #b61e7e;
+}
+.theme--magenta .t-light,
+.night-mode .theme--magenta .link--action,
+.night-mode .theme--magenta .button--flat,
+.night-mode .theme--magenta .theme-text,
+.night-mode .theme--magenta .selector-list li,
+.night-mode .theme--magenta .t-text {
+	color: #dd3d94;
+}
+.theme--magenta .t-primary-fill,
+.theme--magenta .button--flat,
+.theme--magenta .t-fill {
+	fill: #cf2890;
+}
+.theme--magenta .js-editable-input {
+	box-shadow: inset 0px -3px 0px #cf2890;
+}
+
+
+/*
+PURPLE  ===================================================================
+	Dark:	 #7b1fa2
+	Primary: #9c27b0
+	Light: 	 #ba68c8
+	Tint: 	 #FDEFFF
+ */
+
+.theme--purple .t-dark-bg { 	background-color: #7b1fa2; }
+.theme--purple .t-primary-bg { 	background-color: #9c27b0; }
+.theme--purple .t-light-bg { 	background-color: #ba68c8; }
+.theme--purple .t-tint-bg { 	background-color: #FDEFFF; }
+
+.theme--purple .t-activity-bg,
+.theme--purple.t-activity-bg {
+	background-color: #FDEFFF;
+}
+.theme--purple .t-text {
+	color: #9c27b0;
+}
+.theme--purple .t-border,
+.theme--purple .checkbox:checked + label::before,
+.theme--purple .radio:checked + label::before {
+	border-color: #9c27b0;
+}
+.theme--purple .t-primary,
+.theme--purple .button--primary,
+.theme--purple .checkbox:checked + label::before,
+.theme--purple .radio:checked + label::before
+/*.theme--purple .selector-list li.selected*/ {
+	background-color: #9c27b0;
+}
+.theme--purple .t-dark,
+.theme--purple .link--action,
+.theme--purple .button--flat,
+.theme--purple .theme-text,
+.theme--purple .selector-list li {
+	color: #7b1fa2;
+}
+.theme--purple .t-light,
+.night-mode .theme--purple .link--action,
+.night-mode .theme--purple .button--flat,
+.night-mode .theme--purple .theme-text,
+.night-mode .theme--purple .selector-list li,
+.night-mode .theme--purple .t-text {
+	color: #ba68c8;
+}
+.theme--purple .t-primary-fill,
+.theme--purple .button--flat,
+.theme--purple .t-fill {
+	fill: #9c27b0;
+}
+.theme--purple .js-editable-input {
+	box-shadow: inset 0px -3px 0px #9c27b0;
+}
+
+/*
+VIOLET  ===================================================================
+	Dark:	 #512da8
+	Primary: #673ab7
+	Light: 	 #9575cd
+	Tint: 	 #F5EEFF
+ */
+
+.theme--violet .t-dark-bg { 	background-color: #512da8; }
+.theme--violet .t-primary-bg { 	background-color: #673ab7; }
+.theme--violet .t-light-bg { 	background-color: #9575cd; }
+.theme--violet .t-tint-bg { 	background-color: #F5EEFF; }
+
+.theme--violet .t-activity-bg,
+.theme--violet.t-activity-bg {
+	background-color: #F5EEFF;
+}
+.theme--violet .t-text {
+	color: #673ab7;
+}
+.theme--violet .t-border,
+.theme--violet .checkbox:checked + label::before,
+.theme--violet .radio:checked + label::before {
+	border-color: #673ab7;
+}
+.theme--violet .t-primary,
+.theme--violet .button--primary,
+.theme--violet .checkbox:checked + label::before,
+.theme--violet .radio:checked + label::before,
+.theme--violet .selector-list li.selected {
+	background-color: #673ab7;
+}
+.theme--violet .t-dark,
+.theme--violet .link--action,
+.theme--violet .button--flat,
+.theme--violet .theme-text,
+.theme--violet .selector-list li {
+	color: #512da8;
+}
+.theme--violet .t-light,
+.night-mode .theme--violet .link--action,
+.night-mode .theme--violet .button--flat,
+.night-mode .theme--violet .theme-text,
+.night-mode .theme--violet .selector-list li,
+.night-mode .theme--violet .t-text {
+	color: #9575cd;
+}
+.theme--violet .t-primary-fill,
+.theme--violet .button--flat,
+.theme--violet .t-fill {
+	fill: #673ab7;
+}
+.theme--violet .js-editable-input {
+	box-shadow: inset 0px -3px 0px #673ab7;
+}
+
+/*
+indigo  ===================================================================
+	Dark:	 #2446D3
+	Primary: #3B5AE0
+	Light: 	 #536DFE
+	Tint: 	 #EBEFFF
+ */
+
+.theme--indigo .t-dark-bg { 	background-color: #2446D3; }
+.theme--indigo .t-primary-bg { 	background-color: #3B5AE0; }
+.theme--indigo .t-light-bg { 	background-color: #536DFE; }
+.theme--indigo .t-tint-bg { 	background-color: #EBEFFF; }
+
+.theme--indigo .t-activity-bg,
+.theme--indigo.t-activity-bg {
+	background-color: #EBEFFF;
+}
+.theme--indigo .t-text {
+	color: #3B5AE0;
+}
+.theme--indigo .t-border,
+.theme--indigo .checkbox:checked + label::before,
+.theme--indigo .radio:checked + label::before {
+	border-color: #3B5AE0;
+}
+.theme--indigo .t-primary,
+.theme--indigo .button--primary,
+.theme--indigo .checkbox:checked + label::before,
+.theme--indigo .radio:checked + label::before,
+.theme--indigo .selector-list li.selected {
+	background-color: #3B5AE0;
+}
+.theme--indigo .t-dark,
+.theme--indigo .link--action,
+.theme--indigo .button--flat,
+.theme--indigo .theme-text,
+.theme--indigo .selector-list li {
+	color: #2446D3;
+}
+.theme--indigo .t-light,
+.night-mode .theme--indigo .link--action,
+.night-mode .theme--indigo .button--flat,
+.night-mode .theme--indigo .theme-text,
+.night-mode .theme--indigo .selector-list li,
+.night-mode .theme--indigo .t-text {
+	color: #536DFE;
+}
+.theme--indigo .t-primary-fill,
+.theme--indigo .button--flat,
+.theme--indigo .t-fill {
+	fill: #3B5AE0;
+}
+.theme--indigo .js-editable-input {
+	box-shadow: inset 0px -3px 0px #3B5AE0;
+}
+
+
+/*
+SKY  ===================================================================
+	Dark:	 #0288d1
+	Primary: #03a9f4
+	Light: 	 #29b6f6
+	Tint: 	 #F0FAFF
+ */
+
+.theme--sky .t-dark-bg { 	background-color: #0288d1; }
+.theme--sky .t-primary-bg { background-color: #03a9f4; }
+.theme--sky .t-light-bg { 	background-color: #29b6f6; }
+.theme--sky .t-tint-bg { 	background-color: #F0FAFF; }
+
+.theme--sky .t-activity-bg,
+.theme--sky.t-activity-bg {
+	background-color: #F0FAFF;
+}
+.theme--sky .t-text {
+	color: #03a9f4;
+}
+.theme--sky .t-border,
+.theme--sky .checkbox:checked + label::before,
+.theme--sky .radio:checked + label::before {
+	border-color: #03a9f4;
+}
+.theme--sky .t-primary,
+.theme--sky .button--primary,
+.theme--sky .checkbox:checked + label::before,
+.theme--sky .radio:checked + label::before,
+.theme--sky .selector-list li.selected {
+	background-color: #03a9f4;
+}
+.theme--sky .t-dark,
+.theme--sky .link--action,
+.theme--sky .button--flat,
+.theme--sky .theme-text,
+.theme--sky .selector-list li {
+	color: #0288d1;
+}
+.theme--sky .t-light,
+.night-mode .theme--sky .link--action,
+.night-mode .theme--sky .button--flat,
+.night-mode .theme--sky .theme-text,
+.night-mode .theme--sky .selector-list li,
+.night-mode .theme--sky .t-text {
+	color: #29b6f6;
+}
+.theme--sky .t-primary-fill,
+.theme--sky .button--flat,
+.theme--sky .t-fill {
+	fill: #03a9f4;
+}
+.theme--sky .js-editable-input {
+	box-shadow: inset 0px -3px 0px #03a9f4;
+}
+
+/*
+CYAN  ===================================================================
+	Dark:	 #0097a7
+	Primary: #00bcd4
+	Light: 	 #4dd0e1
+	Tint: 	 #EFFDFF
+ */
+
+.theme--cyan .t-dark-bg { 		background-color: #0097a7; }
+.theme--cyan .t-primary-bg { 	background-color: #00bcd4; }
+.theme--cyan .t-light-bg { 		background-color: #4dd0e1; }
+.theme--cyan .t-tint-bg { 		background-color: #EFFDFF; }
+
+.theme--cyan .t-activity-bg,
+.theme--cyan.t-activity-bg {
+	background-color: #EFFDFF;
+}
+.theme--cyan .t-text {
+	color: #00bcd4;
+}
+.theme--cyan .t-border,
+.theme--cyan .checkbox:checked + label::before,
+.theme--cyan .radio:checked + label::before {
+	border-color: #00bcd4;
+}
+.theme--cyan .t-primary,
+.theme--cyan .button--primary,
+.theme--cyan .checkbox:checked + label::before,
+.theme--cyan .radio:checked + label::before,
+.theme--cyan .selector-list li.selected {
+	background-color: #00bcd4;
+}
+.theme--cyan .t-dark,
+.theme--cyan .link--action,
+.theme--cyan .button--flat,
+.theme--cyan .theme-text,
+.theme--cyan .selector-list li {
+	color: #0097a7;
+}
+.theme--cyan .t-light,
+.night-mode .theme--cyan .link--action,
+.night-mode .theme--cyan .button--flat,
+.night-mode .theme--cyan .theme-text,
+.night-mode .theme--cyan .selector-list li,
+.night-mode .theme--cyan .t-text {
+	color: #4dd0e1;
+}
+.theme--cyan .t-primary-fill,
+.theme--cyan .button--flat,
+.theme--cyan .t-fill {
+	fill: #00bcd4;
+}
+.theme--cyan .js-editable-input {
+	box-shadow: inset 0px -3px 0px #00bcd4;
+}
+
+/*
+TEAL  ===================================================================
+	Dark:	 #039E9D
+	Primary: #10BDBC
+	Light: 	 #22CAC9
+	Tint: 	 #EDFFFE
+ */
+
+.theme--teal .t-dark-bg { 		background-color: #039E9D; }
+.theme--teal .t-primary-bg { 	background-color: #10BDBC; }
+.theme--teal .t-light-bg { 		background-color: #22CAC9; }
+.theme--teal .t-tint-bg { 		background-color: #EDFFFE; }
+
+.theme--teal .t-activity-bg,
+.theme--teal.t-activity-bg {
+	background-color: #EDFFFE;
+}
+.theme--teal .t-text {
+	color: #10BDBC;
+}
+.theme--teal .t-border,
+.theme--teal .checkbox:checked + label::before,
+.theme--teal .radio:checked + label::before {
+	border-color: #10BDBC;
+}
+.theme--teal .t-primary,
+.theme--teal .button--primary,
+.theme--teal .checkbox:checked + label::before,
+.theme--teal .radio:checked + label::before,
+.theme--teal .selector-list li.selected {
+	background-color: #10BDBC;
+}
+.theme--teal .t-dark,
+.theme--teal .link--action,
+.theme--teal .button--flat,
+.theme--teal .theme-text,
+.theme--teal .selector-list li {
+	color: #039E9D;
+}
+.theme--teal .t-light,
+.night-mode .theme--teal .link--action,
+.night-mode .theme--teal .button--flat,
+.night-mode .theme--teal .theme-text,
+.night-mode .theme--teal .selector-list li,
+.night-mode .theme--teal .t-text {
+	color: #22CAC9;
+}
+.theme--teal .t-primary-fill,
+.theme--teal .button--flat,
+.theme--teal .t-fill {
+	fill: #10BDBC;
+}
+.theme--teal .js-editable-input {
+	box-shadow: inset 0px -3px 0px #10BDBC;
+}
+
+/*
+GREEN  ===================================================================
+	Dark:	 #388e3c
+	Primary: #4caf50
+	Light: 	 #66bb6a
+	Tint: 	 #F4FFF5
+ */
+
+.theme--green .t-dark-bg { 		background-color: #388e3c; }
+.theme--green .t-primary-bg { 	background-color: #4caf50; }
+.theme--green .t-light-bg { 		background-color: #66bb6a; }
+.theme--green .t-tint-bg { 		background-color: #F4FFF5; }
+
+.theme--green .t-activity-bg,
+.theme--green.t-activity-bg {
+	background-color: #F4FFF5;
+}
+.theme--green .t-text {
+	color: #4caf50;
+}
+.theme--green .t-border,
+.theme--green .checkbox:checked + label::before,
+.theme--green .radio:checked + label::before {
+	border-color: #4caf50;
+}
+.theme--green .t-primary,
+.theme--green .button--primary,
+.theme--green .checkbox:checked + label::before,
+.theme--green .radio:checked + label::before {
+	background-color: #4caf50;
+}
+.theme--green .t-dark,
+.theme--green .link--action,
+.theme--green .button--flat,
+.theme--green .theme-text {
+	color: #388e3c;
+}
+.theme--green .t-light,
+.night-mode .theme--green .link--action,
+.night-mode .theme--green .button--flat,
+.night-mode .theme--green .theme-text,
+.night-mode .theme--green .t-text {
+	color: #66bb6a;
+}
+.theme--green .t-primary-fill,
+.theme--green .button--flat,
+.theme--green .t-fill {
+	fill: #4caf50;
+}
+.theme--green .js-editable-input {
+	box-shadow: inset 0px -3px 0px #4caf50;
+}
+
+/*
+sand  ===================================================================
+	Dark:	 #A27701
+	Primary: #C79100
+	Light: 	 #D8B863
+	Tint: 	 #F3F0EA
+ */
+
+.theme--sand .t-dark-bg { 		background-color: #A27701; }
+.theme--sand .t-primary-bg { 	background-color: #C79100; }
+.theme--sand .t-light-bg { 		background-color: #D8B863; }
+.theme--sand .t-tint-bg { 		background-color: #F3F0EA; }
+
+.theme--sand .t-activity-bg,
+.theme--sand.t-activity-bg {
+	background-color: #F3F0EA;
+}
+.theme--sand .t-text {
+	color: #C79100;
+}
+.theme--sand .t-border,
+.theme--sand .checkbox:checked + label::before,
+.theme--sand .radio:checked + label::before {
+	border-color: #C79100;
+}
+.theme--sand .t-primary,
+.theme--sand .button--primary,
+.theme--sand .checkbox:checked + label::before,
+.theme--sand .radio:checked + label::before,
+.theme--sand .selector-list li.selected {
+	background-color: #C79100;
+}
+.theme--sand .t-dark,
+.theme--sand .link--action,
+.theme--sand .button--flat,
+.theme--sand .theme-text,
+.theme--sand .selector-list li {
+	color: #A27701;
+}
+.theme--sand .t-light,
+.night-mode .theme--sand .link--action,
+.night-mode .theme--sand .button--flat,
+.night-mode .theme--sand .theme-text,
+.night-mode .theme--sand .selector-list li,
+.night-mode .theme--sand .t-text {
+	color: #D8B863;
+}
+.theme--sand .t-primary-fill,
+.theme--sand .button--flat,
+.theme--sand .t-fill {
+	fill: #C79100;
+}
+.theme--sand .js-editable-input {
+	box-shadow: inset 0px -3px 0px #C79100;
+}
+
+/*
+PEACH  ===================================================================
+	Dark:	 #E4823A
+	Primary: #FFA360
+	Light: 	 #FFAF75
+	Tint: 	 #FFF9F4
+ */
+
+.theme--peach .t-dark-bg { 		background-color: #E4823A; }
+.theme--peach .t-primary-bg { 	background-color: #FFA360; }
+.theme--peach .t-light-bg { 	background-color: #FFAF75; }
+.theme--peach .t-tint-bg { 		background-color: #FFF9F4; }
+
+.theme--peach .t-activity-bg,
+.theme--peach.t-activity-bg {
+	background-color: #FFF9F4;
+}
+.theme--peach .t-text {
+	color: #E4823A;
+}
+.theme--peach .t-border,
+.theme--peach .checkbox:checked + label::before,
+.theme--peach .radio:checked + label::before {
+	border-color: #FFA360;
+}
+.theme--peach .t-primary,
+.theme--peach .button--primary,
+.theme--peach .checkbox:checked + label::before,
+.theme--peach .radio:checked + label::before,
+.theme--peach .selector-list li.selected {
+	background-color: #FFA360;
+}
+.theme--peach .t-dark,
+.theme--peach .link--action,
+.theme--peach .button--flat,
+.theme--peach .theme-text,
+.theme--peach .selector-list li {
+	color: #E4823A;
+}
+.theme--peach .t-light,
+.night-mode .theme--peach .link--action,
+.night-mode .theme--peach .button--flat,
+.night-mode .theme--peach .theme-text,
+.night-mode .theme--peach .selector-list li,
+.night-mode .theme--peach .t-text {
+	color: #FFAF75;
+}
+.theme--peach .t-primary-fill,
+.theme--peach .button--flat,
+.theme--peach .t-fill {
+	fill: #FFA360;
+}
+.theme--peach .js-editable-input {
+	box-shadow: inset 0px -3px 0px #FFA360;
+}

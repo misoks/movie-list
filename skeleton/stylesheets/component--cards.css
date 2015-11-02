@@ -1,0 +1,125 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							    Cards & Sections
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+
+/* Cards */
+
+.card {
+	background-color: white !important;
+	padding: 16px;
+	margin: 0 0 1.2em;
+	border-left: 5px solid transparent;
+	border-radius: 2px;
+	box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+	vertical-align: top;
+	position:relative;
+}
+	.card__header {
+	}
+		.card__header__text,
+		.section__header__text {
+			margin: 0;
+			display: inline-block;
+		}
+	.card--expandable .card__header__text {
+		cursor: pointer;
+	}
+
+	.card--expandable.collapsed .card__content,
+	.section--expandable.collapsed .section__content {
+		display: none;
+	}
+		.card__header__icon {
+			margin-right: .25em;
+			margin-bottom: -1px;
+		}
+	.card__content {
+		margin-top: .5em;
+	}
+	.card > *:last-child,
+	.card__content > *:last-child {
+		margin-bottom: 0;
+	}
+	.card__summary {
+        margin-top: .5em;
+    }
+	.card__footer {
+		font-size: .9em;
+		font-style: italic;
+		opacity: .6;
+	}
+
+
+	/* Card object variants */
+	.flex-card-group {
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: stretch;
+	    flex-flow: row wrap;
+	    margin-left: -1em;
+	}
+		.card--flex {
+		    flex-grow: 1;
+		    margin-left: 1em;
+		}
+	.card--error { border-color: rgba(244,67,54,1) }
+	.card--error .card__header__text {color: rgba(244,67,54,1) !important;}
+
+	.card--warning { border-color: rgba(255,193,7,1)  }
+	.card--warning .card__header__text { color: #ff8f00  !important;}
+
+	.card--positive { border-color: rgba(76,175,80,1) }
+	.card--positive .card__header__text { color: rgba(76,175,80,1) !important;}
+
+
+
+/* Sections are structurally and functionally very similar to cards but they
+	don't have the background color and physical solidity of a card.*/
+.section {
+	margin-bottom: 16px;
+}
+	.section__header {
+		padding: .5em 0;
+		margin-top: .25em;
+		margin-bottom: 0;
+		overflow-x: hidden;
+		width: 100%;
+	}
+	.section--expandable .section__header__text,
+	.card--expandable .card__header__text {
+		padding-right: 1.25em;
+		position: relative;
+	}
+	.section--expandable .section__header:hover {
+		background-color: rgba(0,0,0,.05);
+		cursor: pointer;
+	}
+
+
+
+/* Expand/Collapse Controls */
+/* These are used in both expandable cards and expandable sections */
+.expand-control {
+	position: absolute;
+	right: 2px;
+	top: .1em;
+	width: .85em;
+	opacity: .6;
+}
+	.expand-control--expand,
+	.collapsed .expand-control--collapse {
+		display: none;
+	}
+	.collapsed .expand-control--expand {
+		display: inline-block;
+	}
+

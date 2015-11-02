@@ -1,0 +1,32 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							    	Dividers
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+.divider {
+	border-top: 1px solid rgba(0,0,0,.1);
+	margin: .5em 0 .3em;
+}
+.title--with-divider {
+	font-weight: 400;
+	display: inline-block;
+	z-index: 2;
+	position: relative;
+}
+	.title--with-divider:after {
+		content: " ";
+		border-bottom: 1px solid rgba(0,0,0,.15);
+		display: block;
+		position: absolute;
+		top: .6em;
+		left: calc(100% + 10px);
+		width: 2000px;
+		z-index: 1;
+	}

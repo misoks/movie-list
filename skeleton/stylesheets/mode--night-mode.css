@@ -1,0 +1,251 @@
+/*  mode--night-mode.css
+	A CSS/JS prototyping framework by Cathy Fisher.
+	Last edited October 2015.
+*/
+/* Night mode */
+.night-mode body {
+	background-color: #303030 !important;
+}
+.night-mode body,
+.night-mode .value,
+.night-mode .js-editable-input,
+.night-mode .text--emphasized {
+	color: white;
+	fill: white;
+}
+.night-mode .text--headline,
+.night-mode .text--title,
+.night-mode .text--secondary,
+.night-mode .card__header__text,
+.night-mode .section__header__text {
+	color: #BFD4DE;
+	fill: #BFD4DE;
+}
+.night-mode .text--subheader {
+	color: #CAD5DA;
+	fill: #CAD5DA;
+}
+.night-mode .label,
+.night-mode .text--label,
+.night-mode .text--reference,
+.night-mode th,
+.night-mode .selector-list__prompt {
+	color: #ADB9BF;
+	fill: #ADB9BF;
+}
+.night-mode a,
+.night-mode a:visited,
+.night-mode a:hover {
+	color: #64b5f6;
+	fill: #64b5f6;
+}
+	.night-mode .link--jump {
+		background-image: url('style-images/jumplink-light.svg');
+	}
+	.night-mode .link--popup {
+		background-image: url('style-images/popuplink-light.svg');
+	}
+
+.night-mode button,
+.night-mode .button,
+.night-mode a.button:hover {
+	background-color: #4c4c4c;
+	color: white;
+	fill: white;
+	border-color: #525151 #3A3A3C #2D2D2D;
+}
+	.night-mode button.inactive,
+	.night-mode .button.inactive {
+		background-color: rgba(255,255,255,.05);
+		color: rgba(255,255,255,.3);
+		fill: rgba(255,255,255,.3);
+		border-color: transparent;
+	}
+	.night-mode .button--primary {
+		background-color: MediumTurquoise;
+		border-color: #525151 #3A3A3C #2D2D2D !important;
+	}
+	.night-mode .button--flat {
+		background-color: transparent;
+		color: MediumTurquoise;
+		border-color: transparent;
+	}
+	.night-mode .button--lesser {
+		background-color: transparent;
+	}
+	.night-mode .button--flat:hover,
+	.night-mode .button--lesser:hover {
+		background-color: rgba(255,255,255,.05);
+	}
+	.night-mode .button--flat {
+		fill: MediumTurquoise;
+	}
+	.night-mode .pressed,
+	.night-mode .selected,
+	.night-mode .selected:hover,
+	.night-mode input:checked + label.button--multi__state {
+		background-color: rgb(11, 167, 234);
+		color: white;
+	}
+	.night-mode .button--multi__state {
+		border-color: #525151 #3A3A3C #2D2D2D;
+	}
+.night-mode .table--row-lines tbody tr {
+    border-top: 1px solid rgba(255,255,255,.03);
+}
+.night-mode .table--row-lines tbody tr:first-child {
+	border-top: none;
+}
+.night-mode .table--zebra tbody tr:nth-child(even) {
+    background-color: rgba(255,255,255,.03);
+}
+
+/* Dividers */
+.night-mode .title--with-divider:after,
+.night-mode .divider,
+.list__item {
+	border-color: rgba(255,255,255,.15);
+}
+
+.night-mode .js-editable:hover {
+	background-image: url('style-images/edit-light.svg');
+}
+
+.night-mode .checkbox + label, .night-mode .radio + label {
+	color: white;
+}
+.night-mode .card {
+	background-color: #424242 !important;
+	color: white;
+	box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+}
+
+.night-mode .tab:hover{
+	color: white;
+}
+.night-mode .tab.current,
+.night-mode a.tab.current {
+	border-bottom: 1px solid #464646;
+	color: white;
+}
+.night-mode .navigator__nav,
+.night-mode .tabbed-container__content,
+.night-mode .tab.current,
+.night-mode a.tab.current {
+	background-color: #464646;
+}
+.night-mode .tabbed-container--transp .tabs {
+	border-bottom: 1px solid transparent;
+}
+.night-mode .tabbed-container--transp .tabbed-container__content {
+	background-color: transparent;
+	border: 1px solid transparent;
+}
+.night-mode .tabbed-container--transp .tab.current {
+	border: 1px solid transparent;
+}
+
+
+.night-mode .icon,
+.night-mode .vector-fore {
+	fill: #ffffff;
+}
+	.night-mode .icon__blue {
+		fill: #bee8fd;
+	}
+	.night-mode .icon__green {
+		fill: #d8fce8;
+	}
+	.night-mode .icon__purple {
+		fill: #e1c3f6;
+	}
+	.night-mode .icon__salmon {
+		fill: #f19d7b;
+	}
+	.night-mode .icon__tan {
+		fill: #f5e5cb;
+		stroke: none;
+	}
+
+.night-mode .color--critical--back { background-color: #d32f2f; color: white; fill: white;}
+.night-mode .color--critical--fore { color: rgba(244,67,54,1); fill: rgba(244,67,54,1);}
+
+.night-mode .color--very-important--back { background-color: #ff6d00; color: white; fill: white; }
+.night-mode .color--very-important--fore { color:rgba(255,87,34,1); fill: rgba(255,87,34,1); }
+
+.night-mode .color--important--back { background-color: #ffd400; color: black; fill: black;}
+.night-mode .color--important--fore { color: #FFAE00; fill: #FFAE00; }
+
+.night-mode .color--suggestion--back { background-color: #ffe0b2; color: black; fill: black;}
+.night-mode .color--suggestion--fore { color: #A5875D; fill: #A5875D; }
+
+.night-mode .color--positive--back { background-color: #c5e1a5; color: black; fill: black;}
+.night-mode .color--positive--fore { color: #4caf50; fill: #4caf50; }
+
+.night-mode .color--help--back { background-color: #cfd8dc; color: black; fill: black;}
+.night-mode .color--help--fore { color: #607d8b; fill: #607d8b; }
+
+.night-mode .selector-list li:hover {
+	background-color: rgba(255,255,255,.05);
+}
+.night-mode .theme--purple .link--action,
+.night-mode .theme--purple .button--flat,
+.night-mode .theme--purple .theme-text,
+.night-mode .purple {
+	color: rgba(186,104,200,1);
+}
+.night-mode .theme--purple .theme-fill ,
+.night-mode .theme--purple .button--flat ,
+.night-mode .purple-fill  {
+	fill: rgba(186,104,200,1);
+}
+
+.night-mode .theme--violet .link--action,
+.night-mode .theme--violet .button--flat,
+.night-mode .theme--violet .theme-text,
+.night-mode .violet {
+	color: rgba(149,117,205,1);
+}
+.night-mode .theme--violet .theme-fill ,
+.night-mode .theme--violet .button--flat ,
+.night-mode .violet-fill  {
+	fill: rgba(149,117,205,1);
+}
+
+.night-mode .theme--indigo .link--action,
+.night-mode .theme--indigo .button--flat,
+.night-mode .theme--indigo .theme-text,
+.night-mode .indigo {
+	color: rgba(121,134,203,1);
+}
+.night-mode .theme--indigo .theme-fill ,
+.night-mode .theme--indigo .button--flat ,
+.night-mode .indigo-fill  {
+	fill: rgba(121,134,203,1);
+}
+
+.night-mode .theme--teal .link--action,
+.night-mode .theme--teal .button--flat,
+.night-mode .theme--teal .theme-text,
+.night-mode .teal {
+	color: rgba(77,182,172,1);
+}
+.night-mode .theme--teal .theme-fill ,
+.night-mode .theme--teal .button--flat ,
+.night-mode .teal-fill  {
+	fill: rgba(77,182,172,1);
+}
+
+.night-mode .theme--green .link--action,
+.night-mode .theme--green .button--flat,
+.night-mode .theme--green .theme-text,
+.night-mode .green {
+	color: rgba(102,187,106,1);
+}
+.night-mode .theme--green .theme-fill ,
+.night-mode .theme--green .button--flat ,
+.night-mode .green-fill  {
+	fill: rgba(102,187,106,1);
+}
+
+.night-mode .card--warning .card__header__text { color: rgba(255,193,7,1)  !important;}

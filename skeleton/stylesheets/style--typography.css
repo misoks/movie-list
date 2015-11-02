@@ -1,0 +1,98 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							      Typography
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+/* Text Styles */
+body {
+	font-size: 16px;
+	font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0;
+}
+
+h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.h5 {
+	margin-top: 1.5em;
+	margin-bottom: .5em;
+	display: block;
+	font-weight: 400;
+}
+	h1, .h1, .text--headline {
+		font-size: 2em;
+		font-weight: 300;
+	}
+	h2, .h2, .text--title, .card__header__text {
+		font-size: 1.5em;
+		font-weight: 300;
+	}
+	h3, .h3, .text--subheader, .section__header__text {
+		font-size: 1.2em;
+	}
+em, .em {
+	font-style: italic;
+}
+strong, .strong {
+	font-weight: 500;
+}
+.text--emphasized {
+	font-size: 1.05em;
+	font-weight: 500;
+}
+.text--spotlight {
+	font-size: 1.5em;
+	font-weight: 400;
+}
+.label, th, .detail, .text--label {
+	font-size: .9em;
+	font-weight: normal;
+}
+.superscript {
+    font-size: .55em;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 2px;
+}
+.text--reference {
+	font-size: .8em;
+}
+/* Paragraphs */
+p {
+	line-height: 1.4;
+	margin: 1.9em 0 1.1em;
+}
+	p:first-child,
+	h1 + p,
+	h2 + p,
+	h3 + p,
+	h4 + p {
+		margin-top: 0;
+	}
+
+/* Hyperlinks */
+a, a:visited, .link, .link:visited {
+	text-decoration: none;
+	cursor: pointer;
+	background-size: 1.2em;
+	background-position: top right;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+	a:hover, .link:hover {
+		text-decoration: underline;
+	}
+	.link--jump {
+		background-image: url('style-images/jumplink.svg');
+		padding-right: 1.5em;
+	}
+	.link--popup {
+		background-image: url('style-images/popuplink.svg');
+		padding-right: 1.5em;
+	}

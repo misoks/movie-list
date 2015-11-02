@@ -1,0 +1,88 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							      Text Fields
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+input,
+.value {
+	font-size: 16px;
+	height: 1.4em;
+	line-height: 1.4;
+	padding: .25em;
+	text-align: left;
+}
+.value {
+	font-size: 12pt;
+}
+
+.form-row {
+	margin-top: .5em;
+	margin-bottom: 1em;
+	height: 2em;
+}
+	.form-row * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+.field--stacked {
+	display: block;
+	margin-bottom: 1.25em;
+}
+	.field--stacked > * {
+		display: block;
+		margin-top: .25em;
+	}
+	.field--stacked:last-child {
+		margin-bottom: 0;
+	}
+
+.field--aligned {
+	width: 40%;
+    position: relative;
+    text-align: right;
+    display: block;
+    height: 2.5em;
+    padding-top: .32em;
+}
+	.field--aligned > * {
+		position: absolute;
+		right: -14em;
+		width: 13.5em;
+		top: 2px;
+	}
+
+
+.js-editable,
+.js-editable-input {
+	border: 0;
+	outline: none;
+	font: 12pt "Roboto";
+	padding: 5px;
+	margin: 0;
+	height: 32px;
+	width: 200px;
+	line-height: 1.4 !important;
+	vertical-align: baseline;
+	background-color: transparent;
+}
+.js-editable-input {
+	box-shadow: inset 0px -3px 0px MediumTurquoise;
+}
+.js-editable {
+	cursor: pointer;
+	padding-right: 1em;
+}
+	.js-editable:hover {
+		background-image: url('style-images/edit.svg');
+		background-size: .8em;
+		background-position: center right;
+		background-repeat: no-repeat;
+	}

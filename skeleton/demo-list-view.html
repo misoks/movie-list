@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+  <!ATTLIST tag destination CDATA #IMPLIED>
+  <!ATTLIST tag transition CDATA #IMPLIED>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>List View | Skeleton</title>
+        <meta name="description" content="A demo for a Skeleton-based list view prototype.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="skeleton.css">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="skeleton.js"></script>
+    </head>
+
+    <body class="theme--pink">
+        <div class="list-view list-view--horiz">
+            <section class="list-view__list"  id="js-resizable-main">
+                <table class="table table--row-lines">
+                    <thead class="table__header">
+                        <tr class="table__header__columns">
+                            <th>Name</th>   <th>Species</th> <th>Born</th> <th>Died</th> <th class="right">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="selectable">
+                            <td>Blubs</td>  <td>fish</td>    <td>1990</td> <td>1991</td> <td class="right">$8.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Sandy</td>  <td>dog</td>     <td>1991</td> <td>2007</td> <td class="right">$300.00</td>
+                        </tr>
+                        <tr class="selectable selected">
+                            <td>Max</td>    <td>dog</td>     <td>2010</td> <td>N/A</td>  <td class="right">$200.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Buzz</td>   <td>fly</td>     <td>2014</td> <td>2014</td> <td class="right">$0.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Blubs</td>  <td>fish</td>    <td>1990</td> <td>1991</td> <td class="right">$8.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Sandy</td>  <td>dog</td>     <td>1991</td> <td>2007</td> <td class="right">$300.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Max</td>    <td>dog</td>     <td>2010</td> <td>N/A</td>  <td class="right">$200.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Buzz</td>   <td>fly</td>     <td>2014</td> <td>2014</td> <td class="right">$0.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Blubs</td>  <td>fish</td>    <td>1990</td> <td>1991</td> <td class="right">$8.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Sandy</td>  <td>dog</td>     <td>1991</td> <td>2007</td> <td class="right">$300.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Max</td>    <td>dog</td>     <td>2010</td> <td>N/A</td>  <td class="right">$200.00</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Buzz</td>   <td>fly</td>     <td>2014</td> <td>2014</td> <td class="right">$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="list-view__pane" id="js-resizable-secondary">
+                <div class="splitter theme-bg"></div>
+                <div class="list-view__pane__content" id="listOne_report">
+                    <div class="flex-card-group">
+                        <div class="card card--flex">
+                            <header class="card__header"><h2>List View Options</h2></header>
+                            <div class="card__content">
+                                <p>You can change the class on the list-view element from <code>.list-view--horiz</code> to <code>.list-view--vert</code>
+                                if you want to have the list on the left and the report pane on the right.</p>
+                            </div>
+                        </div>
+                        <div class="card card--flex" >
+                            <header class="card__header"><h2>Capabilities</h2></header>
+                            <div class="card__content">Each row in <code>.list-view__list</code> is assigned a unique ID, so you can attach logic to individual rows if you want, or tie report behavior to what's currently selected.</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <header class="card__header"><h2>Card 3</h2></header>
+                        <div class="card__content">
+                            <p><a href="index.html">Back to Skeleton</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+
+</html>

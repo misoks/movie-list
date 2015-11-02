@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+<g>
+	<path d="M120,0l40,40v10l-40,40V80V60H50V30 h70V10V0z"/>
+	<path d="M40,160L0,120v-10l40-40l0,0v30h70 v30H40v20V160z"/>
+</g>
+</svg>

@@ -1,0 +1,40 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							        Master
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+*CAF 10/2015 - Restored the import stuff...don't add pure CSS back here!
+===============================================================================*/
+
+@import 'stylesheets/style--animation.css';
+@import 'stylesheets/style--color.css';
+@import 'stylesheets/style--data-formats.css';
+@import 'stylesheets/style--icons.css';
+@import 'stylesheets/style--imagery.css';
+@import 'stylesheets/style--typography.css';
+@import 'stylesheets/component--buttons.css';
+@import 'stylesheets/component--cards.css';
+@import 'stylesheets/component--dialogs.css';
+@import 'stylesheets/component--dividers.css';
+@import 'stylesheets/component--graphing.css';
+@import 'stylesheets/component--grid.css';
+@import 'stylesheets/component--lists.css';
+@import 'stylesheets/component--menus.css';
+@import 'stylesheets/component--progress.css';
+@import 'stylesheets/component--selection-controls.css';
+@import 'stylesheets/component--tables.css';
+@import 'stylesheets/component--text-fields.css';
+@import 'stylesheets/component--tool-tips.css';
+@import 'stylesheets/component--toolbars.css';
+@import 'stylesheets/component--view-controls.css';
+@import 'stylesheets/pattern--folder-tree.css';
+@import 'stylesheets/pattern--list-view.css';
+@import 'stylesheets/pattern--navigator.css';
+@import 'stylesheets/mode--night-mode.css';
+@import 'stylesheets/mode--high-contrast.css';
+@import 'stylesheets/themes.css';
+@import 'stylesheets/utilities.css';

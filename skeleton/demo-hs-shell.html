@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="hyperspace hyperspace--very-large">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Prototype Template</title>
+        <meta name="description" content="A template for a Skeleton.css-based prototype.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="skeleton.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="skeleton.js"></script>
+    </head>
+<style>
+	.hyperspace {
+    background-repeat: no-repeat;
+}
+    .hyperspace body {
+        position: absolute;
+        left: 108px;
+        top: 142px;
+        width:900px;
+    }
+.hyperspace,
+.hyperspace--med {
+    background-image: url("images/hs-med.jpg");
+}
+    .hyperspace body,
+    .hyperspace--med body {
+        width: 1144px;
+        height: 759px;
+    }
+.hyperspace--small {
+    background-image: url("images/hs-small.jpg");
+}
+    .hyperspace--small body {
+        width: 897px;
+        height: 563px;
+    }
+.hyperspace--large {
+    background-image: url("images/hs-large.jpg");
+}
+    .hyperspace--large body {
+        width: 1401px;
+        height: 759px;
+    }
+.hyperspace--very-large {
+    background-image: url("images/hs-very-large.jpg");
+}
+    .hyperspace--very-large body {
+        width: 1730px;
+        height: 783px;
+    }
+.hyperspace iframe {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.activity-title {
+    font-weight: bold;
+    color: #36696d;
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    font-size: .9em;
+    font-family: Arial;
+}
+.activity-toolbar {
+    position: absolute;
+    width: 100%;
+    height: 33px;
+    top: -33px;
+    left: 0;
+    z-index: 2;
+    background-color: rgb(229, 242, 233);
+}
+    .activity-toolbar__item {
+        display: inline-block;
+        padding: 9px 14px 0 28px;
+        height: 33px;
+        font-size: .9em;
+        color: #36696d;
+        background-image: url("icons/action.svg");
+        background-position: 7px 8px;
+        background-repeat: no-repeat;
+        margin: 0;
+        vertical-align: top;
+    }
+        .activity-toolbar__item:hover {
+            text-decoration: none;
+            background-color: #c0dbdd;
+        }
+    .activity-toolbar__divider {
+        width: 1px;
+        height: 31px;
+        display: inline-block;
+        border-left: 1px solid rgb(179, 179, 179);
+        border-right: 1px solid white;
+    }
+</style>
+
+
+<body>
+    <header class="activity-title">Activity Title Here</header>
+    <div class="activity-toolbar">
+        <a class="activity-toolbar__item">Item 1</a>
+        <a class="activity-toolbar__item">Item 2</a>
+        <a class="activity-toolbar__item">Item 3</a>
+        <span class="activity-toolbar__divider"></span>
+        <a class="activity-toolbar__item">Item 4</a>
+        <a class="activity-toolbar__item">Item 5</a>
+    </div>
+	<iframe src="index.html" frameBorder="0"></iframe>
+</body>
+<script>
+    $(document).ready(function() {
+    	// Put your prototype's javascript here.
+        $(".hs-switch").click(function() {
+            var newClass = $(this).attr("id");
+            $("html").removeClass();
+            $("html").addClass("hyperspace " + newClass);
+        });
+    });
+</script>
+</html>

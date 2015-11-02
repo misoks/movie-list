@@ -1,0 +1,108 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							       Utilities
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+* {
+	box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+}
+
+/* Multi-column styles */
+
+.columns {}
+	.column {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.columns--two .column {
+		width: calc(100% / 2 - 10px);
+	}
+	.columns--three .column {
+		width: calc(100% / 3 - 10px);
+	}
+	.column:last-child {
+		margin-right: 0px;
+	}
+
+
+/* Guess-proximate a mobile screen */
+.mobile {
+	margin: auto;
+	width: 360px;
+	height: 640px;
+	background-color: white;
+}
+
+.debug-zone {
+	position: fixed;
+	width: 300px;
+	right:0;
+	bottom: 0;
+	height: 400px;
+	background: rgba(71, 60, 60, .7);
+	color: rgb(229, 229, 229);
+	padding: .5em 1em;
+	box-shadow: 0px 0px 25px rgba(0,0,0,.3);
+	overflow:auto;
+}
+	.debug-zone h3 {
+		text-transform: uppercase;
+		font-size: .9em;
+		opacity: .5;
+		margin-top: .8em;
+	}
+	.debug-zone a,
+	.debug-zone a:hover {
+		color: rgb(229, 229, 229);
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		opacity: .5;
+		font-family: sans-serif;
+		text-decoration: none;
+	}
+	.debug-zone p {
+		font-family: "Consolas";
+		display: block;
+		max-height: 300px;
+		overflow: auto;
+	}
+
+/*==================================================================
+  Helper Classes
+==================================================================*/
+
+/*These should be used to override default styles and so we're applying them last. */
+
+.underline { text-decoration: underline; }
+.strike { text-decoration: line-through; }
+.big { font-size: 1.5em; }
+.huge { font-size: 3em; }
+.all-caps { text-transform: uppercase; }
+
+.left { text-align: left; }
+.right { text-align: right; }
+.center { text-align: center; }
+
+.inline { display: inline; }
+.block { display: block; }
+
+/* Hides from browsers and screenreaders */
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/* Still there, just invisible */
+.invisible {
+	visibility: hidden;
+}

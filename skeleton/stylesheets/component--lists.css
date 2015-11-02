@@ -1,0 +1,84 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							    	 Lists
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+/* Lists */
+ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+li {
+	line-height: 1.7;
+}
+
+dt {
+	font-weight: 500;
+	margin-top: 1em;
+}
+dd {
+	margin: .25em 0 1em;
+}
+	dd:last-child {
+		margin-bottom: 0;
+	}
+
+/* Complex Lists */
+.list--complex {
+	list-style-type: none;
+	padding-left: 7px;
+	display: block;
+}
+	.list__item {
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		padding: 5px 10px 5px;
+		line-height: 1.4;
+		position: relative;
+		display: block;
+		vertical-align: middle;
+	}
+	.list__item:hover {
+		background-color: rgba(33, 150, 243, .15);
+		cursor: default;
+	}
+	.list__item:last-child {
+		border-bottom: none;
+	}
+		.list__item__header {
+			margin: 0;
+		}
+	.list__title {
+		padding-left: 10px;
+		margin: 5px 0;
+	}
+	.list__title .text--reference {
+		font-size: .75em;
+	}
+	.list__title .text--reference,
+	.list__item__header .text--reference {
+		margin-left: .4em
+	}
+	.list__item__info {
+		width: calc(100% - 155px);
+		display: inline-block;
+	}
+	.list__item__action {
+		width: 150px;
+		text-align: right;
+		display: none;
+		position: absolute;
+		height: 100%;
+		top: 50%;
+		right: 10px;
+		margin-top: -1em;
+	}
+	.list__item:hover .list__item__action {
+		display: block;
+	}

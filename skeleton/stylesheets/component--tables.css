@@ -1,0 +1,57 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							    	Tables
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+.data-table {
+
+}
+	.data-table td {
+		height: 2.5em;
+	}
+	th,
+	td {
+		text-align: left;
+		display: table-cell;
+	}
+	.data-table th {
+		vertical-align: baseline;
+	}
+	.data-table td.value {
+		vertical-align: bottom;
+	}
+	.data-table td.label {
+		vertical-align: text-top;
+	}
+	.data-table  .label {
+		text-align: right;
+		display: block;
+	}
+	.data-table .totals {
+		font-weight: 600;
+		border-top: 1px solid rgba(0,0,0,.1);
+	}
+
+/* Table variants */
+	.data-table--zebra tbody tr:nth-child(odd) { background-color: rgba(0,0,0,0); }
+	.table--zebra tbody tr:nth-child(even) { background-color: rgba(0,0,0,.03); }
+
+	.data-table--row-lines tbody tr { border-top: 1px solid rgba(0,0,0,.06)}
+	.data-table--row-lines tbody tr:first-child { border-top: none;}
+	.data-table--row-lines td {padding-bottom: .25em;}
+
+	.data-table--column-lines td,
+	.data-table--column-lines th { border-right: 1px solid rgba(0,0,0,.03)}
+	.data-table--column-lines td:last-child,
+	.data-table--column-lines th:last-child { border-right: none;}

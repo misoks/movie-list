@@ -1,0 +1,245 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+									Buttons
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+
+button, .button {
+	display: inline-block;
+	background-color: rgb(244, 244, 244);
+	border: 0px;
+	/* These two need to be the same for button and a.button to look the same */
+	font-size: .85em;
+	line-height: .85em;
+	/* ----- */
+	font-family: inherit;
+	font-weight: 500;
+	padding: .7em .9em .65em;
+	/*box-shadow: 0px 1px 5px rgba(0,0,0,.4);*/
+	border: 1px solid;
+    border-color: rgba(0,0,0,.05) rgba(0,0,0,.1) rgba(0,0,0,.2);
+    border-bottom-width: 2px;
+	color: #4E6476;
+	fill: #4E6476;
+	border-radius: 3px;
+	cursor: pointer;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 1px;
+	vertical-align: bottom;
+	position: relative;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;
+}
+	a.button {
+		color: #4E6476;
+	}
+	button:hover,
+	.button:hover {
+		text-decoration: none;
+	}
+	button.inactive,
+	.button.inactive {
+		background-color: rgb(221, 221, 221);
+		color: rgb(158, 158, 158);
+		box-shadow: none;
+		cursor: default;
+		border: 1px solid transparent;
+	}
+	button.inactive,
+	.button.inactive {
+		fill: rgb(158, 158, 158);
+	}
+	button:active,
+	.button:active {
+		/*box-shadow: 0px 1px 3px rgba(0,0,0,.2);*/
+		border: 1px solid;
+    	border-color: rgba(0,0,0,.05) rgba(0,0,0,.1) rgba(0,0,0,.2);
+    	margin-top: 1px;
+	}
+	
+	.toggle-check {
+		display: none !important;
+	}
+
+	.button--toggle:active {
+		border-bottom-width: 2px;
+		margin-top: 0;
+	}
+
+	button.inactive:active,
+	.button.inactive:active {
+		box-shadow: none;
+		border: 1px solid transparent;
+		margin-top: 0;
+	}
+	button:focus,
+	.button:focus {
+		outline:0;
+	}
+		/* Button Variant - Primary action button */
+		.button--primary {
+			background-color: MediumTurquoise;
+			color:white;
+    		border-color: rgba(0,0,0,.05) #dfe0e4 rgba(0,0,0,.2) !important;
+		}
+		.button--flat,
+		a.button--flat {
+			color: MediumTurquoise;
+			border: 1px solid transparent;
+		}
+		.button--flat:active {
+			border: 1px solid transparent;
+			margin-top: 0;
+		}
+			a.button--primary {
+				color: white;
+			}
+		.button--lesser {
+			box-shadow: none;
+			background-color: transparent;
+			text-transform: none;
+		}
+		/* The flat button text color should be the same as the primary button background color */
+		.button--flat {
+			box-shadow: none;
+			background-color: transparent;
+			color: MediumTurquoise;
+			border: 1px solid transparent;
+		}
+			.button--flat:hover,
+			.button--flat:focus,
+			.button--lesser:hover,
+			.button--lesser:focus {
+				background-color: rgba(0,0,0, .05);
+			}
+			.button--flat:active {
+				background-color: rgba(0,0,0, .1);
+				box-shadow: none;
+			}
+			.button--flat .icon {
+				fill: MediumTurquoise;
+			}
+
+
+    .button--multi {
+    	padding:0;
+    	white-space: nowrap;
+    	display: inline-block;
+    	position: relative;
+    	border: none;
+    	margin-right: 10px;
+    	overflow: hidden;
+    }
+    .button--multi input {
+    	display: none;
+    }
+    .button--multi:active {
+    	/*box-shadow: 0px 1px 5px rgba(0,0,0,.4);*/
+    	border: none;
+    	margin-top: 0;
+    }
+    	.button--multi__state {
+    		padding: .65em .9em;
+    		border-left: 1px solid rgba(0,0,0,.1);
+    		display: inline-block;
+    		border: 1px solid;
+    		border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    		border-bottom-width: 2px;
+    		border-left-color: transparent;
+    		line-height: .85em;
+    		margin-left: -5px;
+    		font-weight: 500;
+    	}
+    	.button--multi__state:nth-child(2) {
+    		margin-left: 0;
+    	}
+    	.button--multi__state:hover {
+    		cursor: pointer;
+    	}
+    	.button--multi__state:first-child {
+    		border-top-left-radius: 3px;
+    		border-bottom-left-radius: 3px;
+    		border-left-color: #dfe0e4;
+    	}
+    	.button--multi__state:last-child {
+    		border-top-right-radius: 3px;
+    		border-bottom-right-radius: 3px;
+    	}
+   	.button--with-icon {
+   		padding-left: 2.5em;
+   	}
+   	.button--multi .button--with-icon {
+   		position: relative;
+   	}
+    button svg,
+    .button svg,
+    button img,
+    .button img {
+    	width: 1.25em;
+    	height: 1.25em;
+	    margin-right: 1em;
+	    position: absolute;
+	    top: .4em;
+	    left: .7em;
+    }
+
+	    .button--primary svg {
+	    	fill: white;
+	    }
+
+.button-group {
+	text-align: right;
+	margin: .5em 0 1em;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+	.button-group .button,
+	.button-group button {
+		margin-top: .5em;
+	}
+	.button-group:last-child {
+		margin-bottom: 0;
+	}
+
+	.pressed,
+	input:checked + label.button--multi__state,
+	input:checked + .button--toggle {
+        /*box-shadow: 0px 1px 5px rgba(255,255,255,1);*/
+		border: 1px solid transparent;
+		border-bottom-width: 2px;
+    }
+@media screen and (max-width: 600px) {
+	.button,
+	.button--multi__state {
+		padding: 1em 1.5em;
+	}
+	.button--multi {
+	  padding: 0;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+	.button {
+		font-size: .9em;
+	}
+	.button,
+	.button--multi__state {
+		padding: 1em 1.75em;
+	}
+	.button--multi {
+		padding: 0;
+	}
+}

@@ -1,0 +1,44 @@
+/*=============================================================================
+
+								S K E L E T O N
+
+							         Icons
+
+
+Revision History --------------------------------------------------------------
+*CAF 10/2015 - Created
+
+===============================================================================*/
+
+svg,
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: baseline;
+}
+.icon--tiny {
+	width: .75em;
+	height: .75em;
+}
+.icon--small {
+	width: 1em;
+	height: 1em;
+}
+.icon--medium {
+	width: 1.5em;
+	height: 1.5em;
+}
+.icon--large {
+	width: 2em;
+	height: 2em;
+}
+.icon--huge {
+	width: 3em;
+	height: 3em;
+}
+
+.icon--fat-tab {
+	width: 48px;
+	height: auto;
+}

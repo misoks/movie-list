@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+  <!ATTLIST tag destination CDATA #IMPLIED>
+  <!ATTLIST tag transition CDATA #IMPLIED>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Navigator</title>
+        <meta name="description" content="A demo for a Skeleton-based navigator prototype.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="skeleton.css">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="skeleton.js"></script>
+    </head>
+
+    <body class="theme--light-green">
+        <div class="navigator">
+    	   <nav class="navigator__nav">
+           </nav>
+           <div class="navigator__content">
+                <section class="card navigator__section" id="nav-section-1" name="Basics">
+                    <header class="card__header">
+                        <h3 class="card__header__text">Navigator Basics</h3>
+                    </header>
+                    <div class="card__content">
+                        <p>Each of these cards is a navigator section. By default, each section is in a read-only mode. But by either clicking on it or its corresponding link in the navigation pane to the left, it will transform into an editable mode where any fields with the <code>.editable</code> class it contains will turn into inputs. For example:</p>
+                        <label>Your Favorite Color<span class="editable">blue</span></label>
+                        <label>Your Favorite Animal<span class="editable">hawk</span></label>
+                        <p>If you have more sections than will fit on the screen, the links in the navigation pane will scroll the relevant section to the top 
+                        of the screen.</p>
+                    </div>
+                </section>
+                <section class="card navigator__section" id="nav-section-2" name="Implementation">
+                    <header class="card__header">
+                        <h3 class="card__header__text">Implementation</h3>
+                    </header>
+                    <div class="card__content">
+                        <p>View the HTML source code for this page to get an idea of how to implement a navigator in Skeleton. The content of the navigation pane is automatically populated based on the content here in the main section. We use the <code>name</code> attribute of the <code>.navigator__section</code> to make the text of the link in the navigation pane, so the header of the actual section can be a little more
+                        verbose if you want.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod porttitor posuere. Maecenas consectetur mi sed magna rhoncus, non blandit tellus eleifend. Fusce dignissim mi turpis, sit amet sodales nisi consectetur vitae. Vivamus vestibulum risus eget adipiscing posuere. Proin ac egestas erat, at faucibus dolor. Morbi non leo enim. Donec accumsan dictum elit vehicula aliquet. Quisque sed tincidunt arcu. Nullam a dolor vel tellus interdum tempor. Etiam pharetra faucibus neque, rhoncus pellentesque ante faucibus at. Aliquam pellentesque urna vitae est volutpat condimentum. Phasellus varius a ante ac venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur porttitor risus ac rhoncus scelerisque. Pellentesque lobortis est et libero aliquet, ac luctus lacus laoreet. Morbi pharetra nibh ac vulputate consectetur.</p>
+                    </div>
+                </section>
+                <h2 name="Related Content">A Header for Some Related Content</h2>
+                <section class="card navigator__section" id="nav-section-3" name="Section Groupings">
+                    <header class="card__header">
+                        <h3 class="card__header__text">Section Groupings</h3>
+                    </header>
+                    <div class="card__content">
+                        <p>You can group related navigator sections by inserting headers in between them. (See above)</p>
+                        <ul>
+                            <li>Now,</li>
+                            <li>some</li>
+                            <li>content</li>
+                            <li>so</li>
+                            <li>you</li>
+                            <li>can</li>
+                            <li>see</li>
+                            <li>how</li>
+                            <li>scrolling</li>
+                            <li>works</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="card navigator__section" id="nav-section-4" name="Lorem Baby">
+                    <header class="card__header">
+                        <h3 class="card__header__text">The Card with the Lorem Ipsum</h3>
+                    </header>
+                    <div class="card__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod porttitor posuere. Maecenas consectetur mi sed magna rhoncus, non blandit tellus eleifend. Fusce dignissim mi turpis, sit amet sodales nisi consectetur vitae. Vivamus vestibulum risus eget adipiscing posuere. Proin ac egestas erat, at faucibus dolor. Morbi non leo enim. Donec accumsan dictum elit vehicula aliquet. Quisque sed tincidunt arcu. Nullam a dolor vel tellus interdum tempor. Etiam pharetra faucibus neque, rhoncus pellentesque ante faucibus at. Aliquam pellentesque urna vitae est volutpat condimentum. Phasellus varius a ante ac venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur porttitor risus ac rhoncus scelerisque. Pellentesque lobortis est et libero aliquet, ac luctus lacus laoreet. Morbi pharetra nibh ac vulputate consectetur.</p>
+                    </div>
+                </section>
+                <section class="card navigator__section" id="nav-section-5" name="Section Four">
+                    <header class="card__header">
+                        <h3 class="card__header__text">The Last Section</h3>
+                    </header>
+                    <div class="card__content">
+                        <p>Okay, that's pretty cool. <a href="index.html">Take me back to Skeleton</a>.</p>
+                    </div>
+                </section>
+           </div>
+    </body>
+
+</html>
