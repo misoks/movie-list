@@ -22,8 +22,18 @@ $(document).ready(function() {
 	$('#date-field').val(new Date().toDateInputValue());
 	$("#searchQuery").focus();
 
+	//Wait a second to make sure everything is loaded before displaying it
+	setTimeout(function(){
+		cascadeLoad("#storedMovies .movie__content", 250);
+	},1000);
+
 });
 
+function cascadeLoad(selector, speed) {
+	$(selector).each(function(index){
+		$(this).delay(index * 50).fadeIn(speed);
+	});
+}
 
 function apiSearch(query) {
 	return "http://api.themoviedb.org/3/search/movie?api_key=" + KEY + "&query=" + query;
@@ -76,12 +86,13 @@ var search = function() {
 				firstID = item.id;
 			}
 			if (item.release_date) year = item.release_date.substring(0,4);
-		    $( "#searchResults" ).append( "<li class='movie result selectable' onclick='examine(this);' class='result' id='"+ item.id + "'>" + getPoster(item) + item.title + " (" + year + ")</li>");
+		    $( "#searchResults" ).append( "<li style='display: none' class='movie result selectable' onclick='examine(this);' class='result' id='"+ item.id + "'>" + getPoster(item) + item.title + " (" + year + ")</li>");
 		});
 		if (count === 0) {
 			$( "#searchResults" ).append("<p class='message'>No results found :(</p>");
 		}
 		indexMovies();
+		cascadeLoad("#searchResults .movie", 500);
 		examine(firstID);
 	}, "json");
 	

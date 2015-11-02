@@ -54,11 +54,13 @@
 		        		<input type="text" ng-model="test">
 		        	</div>
 		        </label>
-		        <ul class="search-results">
-		        	<li class="movie result movie--stored selectable" onClick="examine(this);" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}'>
-		        		<img class="movie__poster" src='https://image.tmdb.org/t/p/w185{{ x.poster_path }}' />
-		        		{{ x.title }}
-		        		<span class="movie__year">{{ '(' + x.year + ')' }}</span>
+		        <ul class="search-results" id="storedMovies">
+		        	<li class="movie result movie--stored selectable"  onClick="examine(this);" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}'>
+		        		<span class="movie__content" style="display: none">
+			        		<img class="movie__poster" src='https://image.tmdb.org/t/p/w185{{ x.poster_path }}' />
+			        		{{ x.title }}
+			        		<span class="movie__year">{{ '(' + x.year + ')' }}</span>
+			        	</span>
 		          	</li>
 		        </ul> 
 

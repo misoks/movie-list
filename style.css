@@ -1,6 +1,6 @@
 * {
 	box-sizing: border-box;
-	transition: all ease .2s;
+	/*transition: all ease .2s;*/
 }
 
 body,html{
@@ -94,6 +94,10 @@ input {
     vertical-align: middle;
     position: relative;
     padding-left: 60px;
+    height: 3em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .movie:focus {
 	outline: none;
