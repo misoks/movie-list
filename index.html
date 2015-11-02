@@ -55,7 +55,8 @@
 		        	</div>
 		        </label>
 		        <ul class="search-results">
-		        	<li class="movie result movie--stored selectable" onClick="examine(this);" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}'> 
+		        	<li class="movie result movie--stored selectable" onClick="examine(this);" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}'>
+		        		<img class="movie__poster" src='https://image.tmdb.org/t/p/w185{{ x.poster_path }}' />
 		        		{{ x.title }}
 		        		<span class="movie__year">{{ '(' + x.year + ')' }}</span>
 		          	</li>

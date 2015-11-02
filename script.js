@@ -1,8 +1,9 @@
-var key = "e483f2dad026f3ab5718087761fc3799";
+var KEY = "e483f2dad026f3ab5718087761fc3799";
 var movie = new Object();
 var database;
 var ENTER_KEY = 13;
 var TAB_KEY = 9;
+var POSTER_LOCATION = "https://image.tmdb.org/t/p/w185";
 clearOnRefresh = true;
 
 $(document).ready(function() {
@@ -22,6 +23,15 @@ $(document).ready(function() {
 	$("#searchQuery").focus();
 
 });
+
+
+function apiSearch(query) {
+	return "http://api.themoviedb.org/3/search/movie?api_key=" + KEY + "&query=" + query;
+}
+function apiLookup(movieID) {
+	return "http://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + KEY;
+}
+
 
 function indexMovies() {
 	var index = 0;
@@ -56,17 +66,21 @@ var search = function() {
 	if (!(query.length > 1)) return;
 
 	$( "#searchResults" ).text("");
-	$.get( "http://api.themoviedb.org/3/search/movie?api_key=" + key + "&query=" + query, function( data ) {
+	$.get( apiSearch(query), function( data ) {
 		var count = 0;
 		var firstID;
+		var poster;
 		$.each(data.results, function(i, item) {
 			count = count + 1;
 			if (count == 1) {
 				firstID = item.id;
 			}
 			if (item.release_date) year = item.release_date.substring(0,4);
-		    $( "#searchResults" ).append( "<li class='movie result selectable' onclick='examine(this);' class='result' id='"+ item.id + "'>" + item.title + " (" + year + ")</li>");
+		    $( "#searchResults" ).append( "<li class='movie result selectable' onclick='examine(this);' class='result' id='"+ item.id + "'>" + getPoster(item) + item.title + " (" + year + ")</li>");
 		});
+		if (count === 0) {
+			$( "#searchResults" ).append("<p class='message'>No results found :(</p>");
+		}
 		indexMovies();
 		examine(firstID);
 	}, "json");
@@ -74,8 +88,16 @@ var search = function() {
 	
 }
 
-
+var getPoster = function(movie) {
+	if (movie.poster_path) {
+		poster = "<img class='movie__poster' src='" + POSTER_LOCATION + movie.poster_path + "' />";
+	} else {
+		poster = "<img class='movie__poster' src='poster-placeholder.png' />";
+	}
+	return poster;
+} 
 var examine = function(item) {
+	if (!item) return;
 	if (!item.nodeType) item = document.getElementById(item);
 	if (!item) return;
 	var id = item.id;
@@ -87,7 +109,8 @@ var examine = function(item) {
 	$("#selected").attr("movieid", id);
 	if ($(item).hasClass("movie--stored")) {
 		movie = fetchMovie(id);
-		$("#selected").append("<img class='poster' src='https://image.tmdb.org/t/p/w185" + movie.poster_path + "'>")
+
+		$("#selected").append(getPoster(movie));
 		$("#selected").append("<h3>" + movie.title + "<span class='year'>(" + movie.year + ")</span></h3>");
 		$("#selected").append("<div class='date-watched'>Watched " + prettyDate(movie.myDateWatched) + "</div>");
 		$("#selected").append("<div class='rating rating--" + movie.myRating +"'><span class='star star--1' /><span class='star star--2' /><span class='star star--3' /><span class='star star--4' /><span class='star star--5' /></div>");
@@ -98,8 +121,8 @@ var examine = function(item) {
 		//$("#selected").append("<button onclick='deleteMovie(" + id + ");'>Remove</button>");
 	}
 	else {
-		$.get( "http://api.themoviedb.org/3/movie/" + id + "?api_key=" + key, function( movie ) {
-			$("#selected").append("<img class='poster' src='https://image.tmdb.org/t/p/w185" + movie.poster_path + "'>")
+		$.get( apiLookup(id), function( movie ) {
+			$("#selected").append(getPoster(movie));
 			var year = movie.release_date.substring(0,4);
 			if (year) year = "(" + year + ")";
 			$("#selected").append("<h3>" + movie.title + "<span class='year'>" + year + "</span></h3>");
@@ -117,7 +140,7 @@ var selectResult = function(itemId) {
 	if (!itemId) {
 		itemId = parseInt($("#selected").attr("movieid"));
 	}
-    $.get( "http://api.themoviedb.org/3/movie/" + itemId + "?api_key=" + key, function( data ) {
+    $.get( apiLookup(itemId), function( data ) {
     	var dateWatched = $("#date-field").val();
     	var rating = $("#rating-field").val();
 		var newMovie = new movie(dateWatched, rating, data);
@@ -138,8 +161,6 @@ var deleteMovie = function(itemId) {
 }
 
 var movie = function(myDateWatched, myRating, obj) {
-
-	//obj.myDateWatched = Date.parse(myDateWatched);
 	obj.myDateWatched = myDateWatched;
 	obj.myRating = myRating
 	obj.year = obj.release_date.substring(0,4);
@@ -171,35 +192,17 @@ var saveDatabase = function() {
     });
 }
 
-
+// Outputs a date string in human-readable language. 
+//		If the date is in the current year: Monday, November 2
+//		If the date is not the current year: Monday, November 2, 2015
 var prettyDate = function(dateString) {
 	var today = new Date();
 	var thisYear = today.getUTCFullYear();
 
 	var rawDate = new Date(dateString);
 	var date = rawDate.getUTCDate();
-	var days = new Array();
-	days[0] = "Sunday";
-	days[1] = "Monday";
-	days[2] = "Tuesday";
-	days[3] = "Wednesday";
-	days[4] = "Thursday";
-	days[5] = "Friday";
-	days[6] = "Saturday";
-
-	var months = new Array();
-	months[0] = "January";
-	months[1] = "February";
-	months[2] = "March";
-	months[3] = "April";
-	months[4] = "May";
-	months[5] = "June";
-	months[6] = "July";
-	months[7] = "August";
-	months[8] = "September";
-	months[9] = "October";
-	months[10] = "November";
-	months[11] = "December";
+	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	var month = months[rawDate.getUTCMonth()];
 	var year = rawDate.getUTCFullYear();
 	var day = days[rawDate.getUTCDay()];
@@ -212,6 +215,7 @@ var prettyDate = function(dateString) {
 	}
 }
 
+//Puts the current date into a date input element
 Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
