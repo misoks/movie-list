@@ -39,7 +39,7 @@ $( window ).resize(function() {
 
 function getScreenSize() {
 	var body = document.getElementById("view-box");
-	if (body.offsetWidth > 1000) {
+	if (body.offsetWidth > 999) {
 		screenIsMobile = false;
 		screenIsLarge = true;
 	}
@@ -49,8 +49,10 @@ function getScreenSize() {
 	}
 }
 function cascadeLoad(selector, speed) {
+	var itemLoad = 50;
 	$(selector).each(function(index){
-		$(this).delay(index * 50).fadeIn(speed);
+		if (index == 20) itemLoad = 0;
+		$(this).delay(index * itemLoad).fadeIn(speed);
 	});
 }
 
@@ -112,7 +114,11 @@ var search = function() {
 		}
 		indexMovies();
 		cascadeLoad("#searchResults .movie", 500);
-		if (!screenIsMobile) examine(firstID);
+		if (!screenIsMobile) {
+			examine(firstID);
+		} else {
+			$("#" + firstID).focus();
+		}
 	}, "json");
 	
 	
@@ -131,6 +137,7 @@ var examine = function(item) {
 	if (!item.nodeType) item = document.getElementById(item);
 	if (!item) return;
 
+	getScreenSize();
 	if (screenIsMobile) transition(item);
 
 	var id = item.id;
