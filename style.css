@@ -112,6 +112,12 @@ input {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.movie__content {
+	display: none;
+}
+.loaded .movie__content {
+	display: block;
+}
 .movie:focus {
 	outline: none;
 }

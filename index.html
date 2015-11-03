@@ -62,7 +62,7 @@
 			        </label>
 			        <ul class="search-results" id="storedMovies">
 			        	<li container="view-box" destination="state-detail" transition="slide-left" class="movie result movie--stored selectable state-switch" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}' onclick="examine(this)">
-			        		<span class="movie__content" style="display: none">
+			        		<span class="movie__content">
 				        		<img class="movie__poster" src='https://image.tmdb.org/t/p/w185{{ x.poster_path }}' />
 				        		{{ x.title }}
 				        		<span class="movie__year">{{ '(' + x.year + ')' }}</span>

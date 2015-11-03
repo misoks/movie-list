@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 	//Wait a second to make sure everything is loaded before displaying it
 	setTimeout(function(){
-		cascadeLoad("#storedMovies .movie__content", 250);
+		cascadeLoad("#storedMovies .movie__content", "#storedMovies", 250);
 	},1000);
 
 });
@@ -48,12 +48,16 @@ function getScreenSize() {
 		screenIsLarge = false;
 	}
 }
-function cascadeLoad(selector, speed) {
+function cascadeLoad(selector, parent, speed) {
 	var itemLoad = 50;
 	$(selector).each(function(index){
 		if (index == 20) itemLoad = 0;
 		$(this).delay(index * itemLoad).fadeIn(speed);
 	});
+	setTimeout(function(){
+		$(parent).addClass('loaded');
+	},1000);
+	
 }
 
 function apiSearch(query) {
@@ -113,7 +117,7 @@ var search = function() {
 			$( "#searchResults" ).append("<p class='message'>No results found :(</p>");
 		}
 		indexMovies();
-		cascadeLoad("#searchResults .movie", 500);
+		cascadeLoad("#searchResults .movie", "#searchResults", 500);
 		if (!screenIsMobile) {
 			examine(firstID);
 		} else {
