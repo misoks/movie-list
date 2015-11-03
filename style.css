@@ -12,7 +12,7 @@ body,html{
 
 body {
 	padding: 0;
-	font-size: 15pt;
+	font-size: 17pt;
 	font-family: Roboto,"Helvetica Neue", Arial, sans-serif;
 	
 }
@@ -58,7 +58,7 @@ input {
 	display: block;
 	background-color: white;
 	color: black !important;
-	margin-top: 5px;
+	margin-top: .5em;
 	padding: 5px 10px;
 }
 .movie-detail .field {
@@ -144,7 +144,7 @@ input {
 	
 	height: 100%;
 	box-shadow: 0px 0px 20px rgba(0,0,0,.5);
-	padding: 50px 20px;
+	padding: 75px 20px;
 	text-align: center;
 	float: right;
 	z-index: 0;
@@ -167,9 +167,11 @@ input {
 	float: left;
 	clear: left;
 	margin-right: 20px;
+	width: 80px;
+	height: auto;
 }
 .movie-detail h3 {
-	font-size: 3em;
+	font-size: 2em;
 	font-weight: 200;
 	color: rgba(255,255,255,.8);
 	margin: 0 0 .2em;
@@ -217,10 +219,18 @@ input {
 .existing-selected ~ .delete-button {
 	display: block;
 }
+.button--back {
+	position: absolute;
+	top: 20px;
+	left: 25px;
+}
 
 @media only screen and (min-width: 1000px) {
+	body {
+		font-size: 15pt;
+	}
 	.movie-detail {
-		padding: 150px 20px;
+		padding: 120px 20px;
 		width: calc(100% - 400px);
 	}
 	.movies {
@@ -233,6 +243,12 @@ input {
 	}
 	.state {
 		display: block !important;
+	}
+	.movie-detail h3 {
+		font-size: 3em;
+	}
+	.button--back {
+		display: none;
 	}
 	
 }
