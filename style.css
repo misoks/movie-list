@@ -199,13 +199,17 @@ input {
 	margin-right: .5em;
 	display: inline-block;
 }
-.star--1,
+.rating--1 .star--1,
+.rating--2 .star--1,
 .rating--2 .star--2,
+.rating--3 .star--1,
 .rating--3 .star--2,
 .rating--3 .star--3,
+.rating--4 .star--1,
 .rating--4 .star--2,
 .rating--4 .star--3,
 .rating--4 .star--4,
+.rating--5 .star--1,
 .rating--5 .star--2,
 .rating--5 .star--3,
 .rating--5 .star--4,
