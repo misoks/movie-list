@@ -54,9 +54,9 @@ $(document).ready(function() {
 	});
 
 	// Selects a selectable element
-	$(".selectable").click(function() {
+	/*$(".selectable").click(function() {
 		doSelect(this, 1);
-	});
+	});*/
 
 	// Switches an editable element into edit mode
 	$(".js-editable").click(function() {
@@ -91,9 +91,10 @@ $(document).ready(function() {
 	});
 
 	// Handles state transitions
-	$(".state-switch").click(function() {
+	/*$(".state-switch").click(function() {
+		//console.log(this.id);
 		transition(this);
-	});
+	});*/
 
 	$(".tree li").click(function(){
 		$(".tree li").removeClass("current");
@@ -145,7 +146,6 @@ $(document).ready(function() {
 
 // Handles keyboard navigation
 $(document).keydown(function(e) {
-	console.log(document.activeElement.className);
 	if (! $(document.activeElement).hasClass('selectable')) return;
     if (e.which == UP_KEY) {
         keyUp(e);
@@ -469,7 +469,7 @@ function populateFields() {
 	if (clearOnRefresh) return;
 	if(typeof(Storage) == "undefined") return;
 
-	var value;
+	/*var value;
 	var inputs = document.getElementsByTagName("input");
 	for (var i = 0; i < inputs.length; i++) {
 		var index = inputs[i].id;
@@ -485,11 +485,25 @@ function populateFields() {
 			if (value) display.innerHTML = value;
 		}
 		validate(inputs[i]);
-	}
+	}*/
 
-	var dynamicStateAreas = document.getElementsByClassName("dynamic-area--state-change");
+	/*var dynamicStateAreas = document.getElementsByClassName("dynamic-area--state-change");
 	for (var i = 0; i < dynamicStateAreas.length; i++) {
 		index = dynamicStateAreas[i].id;
+		value = sessionStorage.getItem(index);
+		console.log(index);
+		if (value) {
+			$("#" + index + " .state").removeClass("state--current");
+			$("#" + value).addClass("state--current");
+		}
+		else {
+			var first = $("#" + index + " .state")[0];
+			$(first).addClass("state--current");
+		}
+	}*/
+	
+	$(".dynamic-area--state-change").each(function() {
+		index = this.id;
 		value = sessionStorage.getItem(index);
 		if (value) {
 			$("#" + index + " .state").removeClass("state--current");
@@ -499,7 +513,7 @@ function populateFields() {
 			var first = $("#" + index + " .state")[0];
 			$(first).addClass("state--current");
 		}
-	}
+	});
 
 	/*
 	var toggleButtons = document.getElementsByClassName("button--toggle");

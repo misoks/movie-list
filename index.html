@@ -31,59 +31,62 @@
 	</svg>
 
 	<body class="theme--magenta">
+		<div class="dynamic-area dynamic-area--state-change" id="view-box">
 
-		<div class="movies">
-			<div class="movies__add-new">
-				<label class="label field field--search">Watched anything recently?
-				<input type="text" id="searchQuery"></label>
-				<button onclick="search();" style="display: none;">Search</button>
-				<ul id="searchResults" class="search-results">
-				</ul>
+			<div class="movies state" id="state-list">
+				<div class="movies__add-new">
+					<label class="label field field--search">Watched anything recently?
+					<input type="text" id="searchQuery"></label>
+					<button onclick="search();" style="display: none;">Search</button>
+					<ul id="searchResults" class="search-results">
+					</ul>
+				</div>
+
+				<div ng-app="movieApp" ng-controller="moviesCtl" class="movies__stored"> 
+
+			        <label class="label field field--filter filter section--expandable collapsed">
+			        	<div class="section__header">
+				        	<span class="section__header__text title--with-divider">Search
+			        			<svg class="expand-control expand-control--collapse"><use xlink:href="#collapse" /></svg>
+			        			<svg class="expand-control expand-control--expand"><use xlink:href="#expand" /></svg>
+			        		</span>
+		        		</div>
+		        		<div class="section__content">
+			        		<input type="text" ng-model="test">
+			        	</div>
+			        </label>
+			        <ul class="search-results" id="storedMovies">
+			        	<li container="view-box" destination="state-detail" transition="slide-left" class="movie result movie--stored selectable state-switch" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}' onclick="examine(this)">
+			        		<span class="movie__content" style="display: none">
+				        		<img class="movie__poster" src='https://image.tmdb.org/t/p/w185{{ x.poster_path }}' />
+				        		{{ x.title }}
+				        		<span class="movie__year">{{ '(' + x.year + ')' }}</span>
+				        	</span>
+			          	</li>
+			        </ul> 
+
+			    </div>
+
 			</div>
 
-			<div ng-app="movieApp" ng-controller="moviesCtl" class="movies__stored"> 
-
-		        <label class="label field field--filter filter section--expandable collapsed">
-		        	<div class="section__header">
-			        	<span class="section__header__text title--with-divider">Search
-		        			<svg class="expand-control expand-control--collapse"><use xlink:href="#collapse" /></svg>
-		        			<svg class="expand-control expand-control--expand"><use xlink:href="#expand" /></svg>
-		        		</span>
-	        		</div>
-	        		<div class="section__content">
-		        		<input type="text" ng-model="test">
-		        	</div>
-		        </label>
-		        <ul class="search-results" id="storedMovies">
-		        	<li class="movie result movie--stored selectable"  onClick="examine(this);" id='{{ x.id }}' ng-repeat="x in names | filter:test | orderBy:'-myDateWatched'" tabIndex='{{ $index }}'>
-		        		<span class="movie__content" style="display: none">
-			        		<img class="movie__poster" src='https://image.tmdb.org/t/p/w185{{ x.poster_path }}' />
-			        		{{ x.title }}
-			        		<span class="movie__year">{{ '(' + x.year + ')' }}</span>
-			        	</span>
-		          	</li>
-		        </ul> 
-
-		    </div>
-
-		</div>
-
-		<div class="movie-detail">
-			<div class="movie-detail__content">
-				<div class="movie-detail__content__main" id="selected">
+			<div class="movie-detail state" id="state-detail">
+				<div class="movie-detail__content">
+					<div class="movie-detail__content__main" id="selected">
+					</div>
+					<div class="watch-fields" id="watch-fields">
+						<label class="label field">Date Watched<input type="date" id="date-field"></label>
+						<label class="label field">Rating<input type="number" id="rating-field" min="1" max="5" step="1">
+					</div>
+					<div class="button-group add-button">
+						<button id="add-button" class="button button--primary " onclick='selectResult();'>I Watched This</button>
+					</div>
+					<div class="button-group delete-button">
+						<button id="delete-button" class="button button--primary" onclick='deleteMovie();'>Remove</button>
+					</div>
+					<button class="button state-switch" container="view-box" destination="state-list" transition="slide-right" onclick="transition(this)">Back</button>
 				</div>
-				<div class="watch-fields" id="watch-fields">
-					<label class="label field">Date Watched<input type="date" id="date-field"></label>
-					<label class="label field">Rating<input type="number" id="rating-field" min="1" max="5" step="1">
-				</div>
-				<div class="button-group add-button">
-					<button id="add-button" class="button button--primary " onclick='selectResult();'>I Watched This</button>
-				</div>
-				<div class="button-group delete-button">
-					<button id="delete-button" class="button button--primary" onclick='deleteMovie();'>Remove</button>
-				</div>
+
 			</div>
-
 		</div>
 
 	</body>

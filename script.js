@@ -4,9 +4,13 @@ var database;
 var ENTER_KEY = 13;
 var TAB_KEY = 9;
 var POSTER_LOCATION = "https://image.tmdb.org/t/p/w185";
-clearOnRefresh = true;
+var screenIsMobile = true;
+var screenIsMiddling = false;
+var screenIsLarge = false;
+
 
 $(document).ready(function() {
+	getScreenSize();
 	$.getJSON("db.json", function(json) {
 		database = json;
 		var movieCount = database["records"].length;
@@ -29,6 +33,13 @@ $(document).ready(function() {
 
 });
 
+function getScreenSize() {
+	var body = document.getElementById("view-box");
+	if (body.offsetWidth > 1000) {
+		screenIsMobile = false;
+		screenIsLarge = true;
+	}
+}
 function cascadeLoad(selector, speed) {
 	$(selector).each(function(index){
 		$(this).delay(index * 50).fadeIn(speed);
@@ -86,14 +97,14 @@ var search = function() {
 				firstID = item.id;
 			}
 			if (item.release_date) year = item.release_date.substring(0,4);
-		    $( "#searchResults" ).append( "<li style='display: none' class='movie result selectable' onclick='examine(this);' class='result' id='"+ item.id + "'>" + getPoster(item) + item.title + " (" + year + ")</li>");
+		    $( "#searchResults" ).append( "<li container='view-box' destination='state-detail' transition='slide-left' style='display: none' class='movie result selectable state-switch' onclick='examine(this);' class='result' id='"+ item.id + "'>" + getPoster(item) + item.title + " (" + year + ")</li>");
 		});
 		if (count === 0) {
 			$( "#searchResults" ).append("<p class='message'>No results found :(</p>");
 		}
 		indexMovies();
 		cascadeLoad("#searchResults .movie", 500);
-		examine(firstID);
+		if (!screenIsMobile) examine(firstID);
 	}, "json");
 	
 	
@@ -111,6 +122,9 @@ var examine = function(item) {
 	if (!item) return;
 	if (!item.nodeType) item = document.getElementById(item);
 	if (!item) return;
+
+	if (screenIsMobile) transition(item);
+
 	var id = item.id;
 
 	var movie;
@@ -232,5 +246,7 @@ Date.prototype.toDateInputValue = (function() {
     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
     return local.toJSON().slice(0,10);
 });
+
+
 
 
