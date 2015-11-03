@@ -220,26 +220,3 @@ button, .button {
 		border: 1px solid transparent;
 		border-bottom-width: 2px;
     }
-@media screen and (max-width: 600px) {
-	.button,
-	.button--multi__state {
-		padding: 1em 1.5em;
-	}
-	.button--multi {
-	  padding: 0;
-	}
-
-}
-
-@media screen and (max-width: 600px) {
-	.button {
-		font-size: .9em;
-	}
-	.button,
-	.button--multi__state {
-		padding: 1em 1.75em;
-	}
-	.button--multi {
-		padding: 0;
-	}
-}

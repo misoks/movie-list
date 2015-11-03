@@ -33,11 +33,19 @@ $(document).ready(function() {
 
 });
 
+$( window ).resize(function() {
+	getScreenSize();
+});
+
 function getScreenSize() {
 	var body = document.getElementById("view-box");
 	if (body.offsetWidth > 1000) {
 		screenIsMobile = false;
 		screenIsLarge = true;
+	}
+	else {
+		screenIsMobile = true;
+		screenIsLarge = false;
 	}
 }
 function cascadeLoad(selector, speed) {
@@ -189,9 +197,6 @@ var movie = function(myDateWatched, myRating, obj) {
 	obj.myDateWatched = myDateWatched;
 	obj.myRating = myRating
 	obj.year = obj.release_date.substring(0,4);
-
-	console.log(obj.myRating);
-
 
 	this.store = function() {
 		database["records"].push(obj);
