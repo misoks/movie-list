@@ -274,5 +274,8 @@ input {
 		display: none;
 		top: 20px;
 	}
+	.movie-detail .movie__poster {
+		width: 150px;
+	}
 	
 }
