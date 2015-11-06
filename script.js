@@ -200,8 +200,12 @@ var deleteMovie = function(itemId) {
 	database["records"] = database["records"].filter(function (el) {
 		return el.id !== itemId;
 	});
-	saveDatabase();
-	location.reload();
+	var success = saveDatabase();
+	if (success) {
+		location.reload();
+	} else {
+		console.log("Failed to delete movie.");
+	}
 }
 
 var movie = function(myDateWatched, myRating, obj) {
@@ -211,7 +215,13 @@ var movie = function(myDateWatched, myRating, obj) {
 
 	this.store = function() {
 		database["records"].push(obj);
-		saveDatabase();
+		var success = saveDatabase();
+		if (success) {
+			location.reload();
+		} else {
+			console.log("Failed to add movie.");
+		}
+		
 	}
 }
 
@@ -223,14 +233,22 @@ var fetchMovie = function(movieID) {
 }
 
 var saveDatabase = function() {
-	$.ajax ({
-        type: "POST",
-        dataType : 'json',
-        async: true,
-        url: 'store.php',
-        data: { data: JSON.stringify(database)  },
-        done: function () { location.reload(); }
-    });
+	var jsonstring = JSON.stringify(database);
+	if (isValidJson(jsonstring)) {
+		$.ajax ({
+	        type: "POST",
+	        dataType : 'json',
+	        async: true,
+	        url: 'store.php',
+	        data: { data: jsonstring  },
+	        done: function () { location.reload(); }
+	    });
+	    return true;
+	} 
+	else {
+		console.log("Invalid JSON string.")
+		return false;
+	}
 }
 
 // Outputs a date string in human-readable language. 
@@ -256,6 +274,16 @@ var prettyDate = function(dateString) {
 	}
 }
 
+function isValidJson(text){
+	if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').
+	replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+	replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+	  return true;
+	} 
+	else {
+	  return false;
+	}
+}
 //Puts the current date into a date input element
 Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
