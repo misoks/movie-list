@@ -7,16 +7,45 @@ var POSTER_LOCATION = "https://image.tmdb.org/t/p/w185";
 var screenIsMobile = true;
 var screenIsMiddling = false;
 var screenIsLarge = false;
+var cast = Array();
 
 
 $(document).ready(function() {
+	var actorID;
 	getScreenSize();
 	$.getJSON("db.json", function(json) {
 		database = json;
 		var movieCount = database["records"].length;
 		$("#selected").append("You've watched " + movieCount + " new movies since " + getOldestDate());
+		/*for (var i=0; i < database["records"].length; i++) {
+			movCredits = [];
+			id = database["records"][i].id;
+			$.getJSON( apiGetCast(id), function( movCredits ) {
+				for (var c=0; c<movCredits.cast.length; c++) {
+					actorID = parseInt(movCredits.cast[c].id);
+					if (cast[actorID]) cast[actorID] = cast[actorID] + 1;
+					else cast[actorID] = 1;
+				}
+			});
+		}
+
+		var actorName;
+		var count = 0;
+		setTimeout(function(){ 
+			
+			cast.sort();
+			console.log(cast);
+			for (var a=0; count < 10; a++) {
+				if (cast[a] > 0) {
+					count++;
+					$.getJSON( apiGetActor(a), function( actor ) {
+						console.log(cast[a] + " " + actor.name);
+					});
+				}
+			}
+		}, 3000);*/
+		
 	});
-	
 
 	$("#searchQuery").keyup(function(event){
 	    if( (event.keyCode == ENTER_KEY)) {
@@ -65,6 +94,12 @@ function apiSearch(query) {
 }
 function apiLookup(movieID) {
 	return "http://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + KEY;
+}
+function apiGetCast(movieID) {
+	return "http://api.themoviedb.org/3/movie/" + movieID + "/credits?api_key=" + KEY;
+}
+function apiGetActor(creditID) {
+	return "http://api.themoviedb.org/3/person/" + creditID + "?api_key=" + KEY;
 }
 
 
@@ -124,8 +159,6 @@ var search = function() {
 			$("#" + firstID).focus();
 		}
 	}, "json");
-	
-	
 }
 
 var getPoster = function(movie) {
